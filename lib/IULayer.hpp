@@ -36,6 +36,8 @@ public:
     float y;
     float width;
     float height;
+
+    bool hidden = false;
 };
 
 #endif /* IULayer_hpp */

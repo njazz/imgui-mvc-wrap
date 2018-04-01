@@ -12,6 +12,8 @@
 
 void IULayer::draw()
 {
+    if (hidden)
+        return;
     _drawSubviews();
 };
 

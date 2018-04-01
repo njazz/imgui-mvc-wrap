@@ -17,8 +17,8 @@ class IUObserver {
     std::function<void(void)> _callback = 0;
 
 public:
-    IUObserver(std::function<void(void)> fn);
-    IUObserver(){};
+    explicit IUObserver(std::function<void(void)> fn);
+    //IUObserver(){};
     
     void setCallback(std::function<void(void)> fn);
 

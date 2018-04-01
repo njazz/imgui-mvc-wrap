@@ -8,7 +8,7 @@
 class IUMainMenuBase{
     std::vector <IUMenuBase*> _menus;
 
-    IUWindowController* _windowController;
+    IUWindowController* _windowController = 0;
 public:
     virtual void draw()
     {
