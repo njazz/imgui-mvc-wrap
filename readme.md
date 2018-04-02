@@ -1,8 +1,9 @@
-# dear imgui, + GLFW + GL3W MVC-like application library
+## dear imgui, + GLFW + GL3W MVC-like application library
 
 Currently this is a pert of tilde~/imgui project - a new integrated IDE for PureData visual programming language for multimedia.
 
 Small application framework following MVC-like pattern
+Based on "dear imgui," library: https://github.com/ocornut/imgui
 
 Dependencies:
 - GLFW library
