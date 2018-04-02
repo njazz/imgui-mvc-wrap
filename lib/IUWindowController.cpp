@@ -121,6 +121,7 @@ void IUWindowController::_prepareRender()
 {
     core.switchContext(glWindow, _context);
 
+
     if (pollEvents)
         glfwPollEvents();
 

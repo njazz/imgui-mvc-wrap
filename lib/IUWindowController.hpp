@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "imgui.h"
+
 #include "gl3w.h"
 #include "glfw3.h"
 
@@ -63,6 +64,7 @@ public:
 
     // ---
     void restoreContext();
+
     // temporary fix for multiple windows / text input
     bool isEditingText = false;
     bool pollEvents = true;

@@ -11,10 +11,25 @@
 std::map<GLFWwindow*, bool[3]> IUImplementation::g_mousePressed;
 // added
 #include "IUWindowController.hpp"
+
 void _resize_callback(GLFWwindow* window, int width, int height)
 {
     auto g = static_cast<IUWindowController*>(glfwGetWindowUserPointer(window));
     g->resize();
+}
+
+void _window_focus_callback(GLFWwindow* window, int focused)
+{
+    auto g = static_cast<IUWindowController*>(glfwGetWindowUserPointer(window));
+
+    if (focused)
+    {
+        g->pollEvents = true;
+    }
+    else
+    {
+        g->pollEvents = false;
+    }
 }
 
 // OpenGL3 Render function.
@@ -342,6 +357,9 @@ void IUImplementation::_installCallbacks(GLFWwindow* window)
     glfwSetScrollCallback(window, &IUImplementation::_scrollCallback);
     glfwSetKeyCallback(window, &IUImplementation::_keyCallback);
     glfwSetCharCallback(window, &IUImplementation::_charCallback);
+
+    //
+    glfwSetWindowFocusCallback(window, _window_focus_callback);
 }
 
 #pragma mark -

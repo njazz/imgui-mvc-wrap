@@ -70,6 +70,14 @@ void AppControllerBase::removeWindow(IUWindowController* w)
     }
 }
 
+IUWindowController* AppControllerBase::windowAt(int i)
+{
+    if (i >= _windowControllers.size())
+        return 0;
+
+    return _windowControllers[i];
+}
+
 AppControllerBase::~AppControllerBase()
 {
     glfwTerminate();

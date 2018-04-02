@@ -5,34 +5,16 @@
 #ifndef UIMainMenuBase_hpp
 #define UIMainMenuBase_hpp
 
-class IUMainMenuBase{
-    std::vector <IUMenuBase*> _menus;
+class IUMainMenuBase {
+    std::vector<IUMenuBase*> _menus;
 
     IUWindowController* _windowController = 0;
+
 public:
-    virtual void draw()
-    {
-        ImGui::BeginMainMenuBar();
+    virtual void draw();
 
-        for (auto s: _menus)
-            s->menu();
-
-        ImGui::EndMainMenuBar();
-    }
-
-    void addMenu(IUMenuBase* m, std::string name = "")
-    {
-        m->name = name;
-        m->windowController = _windowController;
-        _menus.push_back(m);
-    }
-
-    void setWindowController(IUWindowController*w){
-        _windowController = w;
-        for (auto m : _menus)
-            m->windowController = _windowController;
-                                                  }
-
+    void addMenu(IUMenuBase* m, std::string name = "");
+    void setWindowController(IUWindowController* w);
 };
 
 #endif

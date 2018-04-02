@@ -22,7 +22,7 @@ protected:
 
 public:
     ~AppControllerBase();
-    
+
     void _windowDrawLoop();
 
     void runLoop();
@@ -30,14 +30,7 @@ public:
     void addWindow(IUWindowController* w);
     void removeWindow(IUWindowController* w);
 
-    IUWindowController* windowAt(int i)
-    {
-        if (i >= _windowControllers.size())
-            return 0;
-
-        return _windowControllers[i];
-    }
+    IUWindowController* windowAt(int i);
 };
 
 #endif /* AppController_hpp */
-
