@@ -53,6 +53,8 @@ public:
 
     static IUKey Dot() { return IUKey(".", { GLFW_KEY_PERIOD }); }
 
+    static IUKey Delete() {return IUKey("Del",{GLFW_KEY_BACKSPACE});}
+
     KEY_C(A);
     KEY_C(B);
     KEY_C(C);

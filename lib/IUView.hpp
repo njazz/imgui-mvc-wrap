@@ -37,6 +37,13 @@ public:
 
     void updated();
     void updated(int key);
+
+
+    void removeFromParentView()
+    {
+        if (_parent)
+            _parent->removeSubview(this);
+    }
 };
 
 #endif /* IUView_hpp */

@@ -54,6 +54,9 @@ public:
     void setTitle(std::string t);
     std::string title() { return _title; }
 
+    int x;
+    int y;
+
     int width;
     int height;
 

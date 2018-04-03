@@ -22,6 +22,9 @@ IUWindowController::IUWindowController(IUViewController* vc, std::string title, 
     width = w;
     height = h;
 
+    this->x = x;
+    this->y = y;
+
     _initWindow();
 
     setTitle(title);

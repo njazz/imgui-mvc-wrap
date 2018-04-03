@@ -27,6 +27,10 @@ public:
     virtual void draw();
 
     void addSubview(IULayer* v);
+    void removeSubview(IULayer* v)
+    {
+        _subviews.erase(std::remove(_subviews.begin(), _subviews.end(), v), _subviews.end());
+    }
     void removeAllSubviews();
 
     virtual void setWindowController(IUWindowController* w);
