@@ -39,7 +39,7 @@ class IUWindowController {
 
     std::string _title = "Window";
 
-    ImGuiContext* _context = 0;
+//    ImGuiContext* _context = 0;
 
 public:
     IUWindowController(IUViewController* vc = 0, std::string title = "Window", int x = -1, int y = -1, int width = 1280, int height = 720);
@@ -48,7 +48,7 @@ public:
     void setViewController(IUViewController* vc);
     IUViewController* viewController() { return _viewController; }
 
-    GLFWwindow* glWindow;
+//    GLFWwindow* glWindow;
     ImVec4 clearColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     void setTitle(std::string t);
@@ -71,5 +71,13 @@ public:
     // temporary fix for multiple windows / text input
     bool isEditingText = false;
     bool pollEvents = true;
+    
+    bool windowShouldClose(){
+        return glfwWindowShouldClose(core.glWindow);
+    }
+    void close()
+    {
+        glfwSetWindowShouldClose(core.glWindow, true);
+    }
 };
 #endif /* IUWindowController_hpp */

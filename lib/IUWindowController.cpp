@@ -33,7 +33,7 @@ IUWindowController::IUWindowController(IUViewController* vc, std::string title, 
     setTitle(title);
 
     if ((x >= 0) || (y >= 0)) {
-        glfwSetWindowPos(glWindow, x, y);
+        glfwSetWindowPos(core.glWindow, x, y);
     }
 }
 
@@ -79,21 +79,22 @@ int IUWindowController::_initWindow()
 #if __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
-
-    glWindow = glfwCreateWindow(width, height, _title.c_str(), NULL, NULL);
-    glfwMakeContextCurrent(glWindow);
+    core.glWindow = glfwCreateWindow(width, height, _title.c_str(), NULL, NULL);
+    glfwMakeContextCurrent(core.glWindow);
+    
     glfwSwapInterval(1); // Enable vsync
     gl3wInit();
 
     // Setup ImGui binding
-    ImGui::SetCurrentContext(0);
-    _context = ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
+
+    
 
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;   // Enable Gamepad Controls
 
-    core.init(glWindow, true);
+    core.init(core.glWindow, true);
+    
+    ImGuiIO& io = ImGui::GetIO();
 
     // Setup style
     //ImGui::StyleColorsDark();
@@ -112,7 +113,7 @@ int IUWindowController::_initWindow()
     io.DisplayFramebufferScale = ImVec2(2, 2);
     io.FontGlobalScale = 0.5;
 
-    glfwSetWindowUserPointer(glWindow, (void*)this);
+    glfwSetWindowUserPointer(core.glWindow, (void*)this);
 
     return 0;
 }
@@ -120,10 +121,9 @@ int IUWindowController::_initWindow()
 void IUWindowController::_freeWindow()
 {
 
-    core.switchContext(glWindow, _context);
+    core.switchContext();//glWindow, _context);
     core.shutdown();
-    ImGui::DestroyContext();
-    glfwDestroyWindow(glWindow);
+    
 }
 
 // ---
@@ -131,14 +131,14 @@ void IUWindowController::_freeWindow()
 
 void IUWindowController::_prepareRender()
 {
-    core.switchContext(glWindow, _context);
+    core.switchContext();//glWindow, _context);
 
     if (pollEvents)
         glfwPollEvents();
 
     core.newFrame();
 
-    glfwGetFramebufferSize(glWindow, &width, &height);
+    glfwGetFramebufferSize(core.glWindow, &width, &height);
 }
 
 void IUWindowController::_drawAll()
@@ -163,12 +163,12 @@ void IUWindowController::_render()
 
     core.renderDrawData(ImGui::GetDrawData());
 
-    glfwSwapBuffers(glWindow);
+    glfwSwapBuffers(core.glWindow);
 }
 
 void IUWindowController::draw()
 {
-    if (!glWindow)
+    if (!core.glWindow)
         return;
 
     _prepareRender();
@@ -186,12 +186,12 @@ void IUWindowController::resize()
 
 void IUWindowController::restoreContext()
 {
-    core.switchContext(glWindow, _context);
+    core.switchContext();//glWindow, _context);
 }
 
 void IUWindowController::setTitle(std::string t)
 {
     _title = t;
-    if (glWindow)
-        glfwSetWindowTitle(glWindow, _title.c_str());
+    if (core.glWindow)
+        glfwSetWindowTitle(core.glWindow, _title.c_str());
 }

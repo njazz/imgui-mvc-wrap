@@ -20,14 +20,14 @@ class IUWindowController;
 
 class IUView : public IULayer {
 
-    std::vector<IUObserver*> _observers;
+//    std::vector<IUObserver*> _observers;
     std::map<int, std::vector<IUObserver*> > _keyedObservers;
 
 protected:
 public:
-    void addObserver(IUObserver* o);
-    void removeObserver(IUObserver* o);
-    void removeAllObservers();
+//    void addObserver(IUObserver* o);
+//    void removeObserver(IUObserver* o);
+//    void removeAllObservers();
 
     void addObserverFor(int k, IUObserver* o);
     void removeObserverFor(int k, IUObserver* o);
@@ -35,7 +35,7 @@ public:
 
     //---
 
-    void updated();
+//    void updated();
     void updated(int key);
 
 

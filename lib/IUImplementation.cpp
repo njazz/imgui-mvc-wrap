@@ -367,7 +367,12 @@ void IUImplementation::_installCallbacks(GLFWwindow* window)
 
 bool IUImplementation::init(GLFWwindow* window, bool install_callbacks, const char* glsl_version)
 {
-    g_Window = window;
+    
+    
+    ImGui::SetCurrentContext(0);
+    context = ImGui::CreateContext();
+    
+    glWindow = window;
 
     // Store GL version string so we can refer to it later in case we recreate shaders.
     if (glsl_version == NULL)
@@ -406,9 +411,9 @@ bool IUImplementation::init(GLFWwindow* window, bool install_callbacks, const ch
 
     io.SetClipboardTextFn = ImGui_ImplGlfwGL3_SetClipboardText;
     io.GetClipboardTextFn = ImGui_ImplGlfwGL3_GetClipboardText;
-    io.ClipboardUserData = g_Window;
+    io.ClipboardUserData = glWindow;
 #ifdef _WIN32
-    io.ImeWindowHandle = glfwGetWin32Window(g_Window);
+    io.ImeWindowHandle = glfwGetWin32Window(glWindow);
 #endif
 
     // Load cursors
@@ -421,21 +426,22 @@ bool IUImplementation::init(GLFWwindow* window, bool install_callbacks, const ch
     g_MouseCursors[ImGuiMouseCursor_ResizeNESW] = glfwCreateStandardCursor(GLFW_ARROW_CURSOR);
     g_MouseCursors[ImGuiMouseCursor_ResizeNWSE] = glfwCreateStandardCursor(GLFW_ARROW_CURSOR);
 
-    glfwSetWindowSizeCallback(g_Window, _resize_callback);
+    glfwSetWindowSizeCallback(glWindow, _resize_callback);
 
     if (install_callbacks)
         _installCallbacks(window);
+    
+    context = ImGui::GetCurrentContext();
 
     return true;
 }
 
 // added
-void IUImplementation::switchContext(GLFWwindow* window, ImGuiContext* ctx)
+void IUImplementation::switchContext()//GLFWwindow* window, ImGuiContext* ctx)
 {
-
-    ImGui::SetCurrentContext(ctx);
-    g_Window = window;
-    glfwMakeContextCurrent(g_Window);
+//    glWindow = window;
+    glfwMakeContextCurrent(glWindow);
+    ImGui::SetCurrentContext(context);
 }
 // -------
 
@@ -448,6 +454,11 @@ void IUImplementation::shutdown()
 
     // Destroy OpenGL objects
     _invalidateDeviceObjects();
+    
+    //
+    ImGui::DestroyContext();
+    glfwDestroyWindow(glWindow);
+    glWindow = 0;
 }
 
 void IUImplementation::newFrame()
@@ -460,8 +471,8 @@ void IUImplementation::newFrame()
     // Setup display size (every frame to accommodate for window resizing)
     int w, h;
     int display_w, display_h;
-    glfwGetWindowSize(g_Window, &w, &h);
-    glfwGetFramebufferSize(g_Window, &display_w, &display_h);
+    glfwGetWindowSize(glWindow, &w, &h);
+    glfwGetFramebufferSize(glWindow, &display_w, &display_h);
     io.DisplaySize = ImVec2((float)w, (float)h);
     io.DisplayFramebufferScale = ImVec2(w > 0 ? ((float)display_w / w) : 0, h > 0 ? ((float)display_h / h) : 0);
 
@@ -472,13 +483,13 @@ void IUImplementation::newFrame()
 
     // Setup inputs
     // (we already got mouse wheel, keyboard keys & characters from glfw callbacks polled in glfwPollEvents())
-    if (glfwGetWindowAttrib(g_Window, GLFW_FOCUSED)) {
+    if (glfwGetWindowAttrib(glWindow, GLFW_FOCUSED)) {
         // Set OS mouse position if requested (only used when ImGuiConfigFlags_NavEnableSetMousePos is enabled by user)
         if (io.WantSetMousePos) {
-            glfwSetCursorPos(g_Window, (double)io.MousePos.x, (double)io.MousePos.y);
+            glfwSetCursorPos(glWindow, (double)io.MousePos.x, (double)io.MousePos.y);
         } else {
             double mouse_x, mouse_y;
-            glfwGetCursorPos(g_Window, &mouse_x, &mouse_y);
+            glfwGetCursorPos(glWindow, &mouse_x, &mouse_y);
             io.MousePos = ImVec2((float)mouse_x, (float)mouse_y);
         }
     } else {
@@ -487,18 +498,18 @@ void IUImplementation::newFrame()
 
     for (int i = 0; i < 3; i++) {
         // If a mouse press event came, always pass it as "mouse held this frame", so we don't miss click-release events that are shorter than 1 frame.
-        io.MouseDown[i] = g_mousePressed[g_Window][i] || glfwGetMouseButton(g_Window, i) != 0;
-        g_mousePressed[g_Window][i] = false;
+        io.MouseDown[i] = g_mousePressed[glWindow][i] || glfwGetMouseButton(glWindow, i) != 0;
+        g_mousePressed[glWindow][i] = false;
     }
 
     // Update OS/hardware mouse cursor if imgui isn't drawing a software cursor
-    if ((io.ConfigFlags & ImGuiConfigFlags_NoSetMouseCursor) == 0 && glfwGetInputMode(g_Window, GLFW_CURSOR) != GLFW_CURSOR_DISABLED) {
+    if ((io.ConfigFlags & ImGuiConfigFlags_NoSetMouseCursor) == 0 && glfwGetInputMode(glWindow, GLFW_CURSOR) != GLFW_CURSOR_DISABLED) {
         ImGuiMouseCursor cursor = ImGui::GetMouseCursor();
         if (io.MouseDrawCursor || cursor == ImGuiMouseCursor_None) {
-            glfwSetInputMode(g_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+            glfwSetInputMode(glWindow, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         } else {
-            glfwSetCursor(g_Window, g_MouseCursors[cursor] ? g_MouseCursors[cursor] : g_MouseCursors[ImGuiMouseCursor_Arrow]);
-            glfwSetInputMode(g_Window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            glfwSetCursor(glWindow, g_MouseCursors[cursor] ? g_MouseCursors[cursor] : g_MouseCursors[ImGuiMouseCursor_Arrow]);
+            glfwSetInputMode(glWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         }
     }
 

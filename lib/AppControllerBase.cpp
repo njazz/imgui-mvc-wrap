@@ -41,7 +41,7 @@ void AppControllerBase::_windowDrawLoop()
 
             auto w = _windowControllers[i];
 
-            if (glfwWindowShouldClose(w->glWindow)) {
+            if (w->windowShouldClose()) {
 
                 //removeWindow(w);
                 delete w;

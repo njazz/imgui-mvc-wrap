@@ -32,7 +32,7 @@
 
 class IUImplementation {
     // GLFW data
-    GLFWwindow* g_Window = NULL;
+    
     double g_Time = 0.0f;
     //    bool g_MouseJustPressed[3] = { false, false, false };
     GLFWcursor* g_MouseCursors[ImGuiMouseCursor_COUNT] = { 0 };
@@ -65,6 +65,9 @@ class IUImplementation {
     void _installCallbacks(GLFWwindow* window);
 
 public:
+    GLFWwindow* glWindow = NULL;
+    ImGuiContext* context = NULL;
+    
     bool init(GLFWwindow* window, bool install_callbacks, const char* glsl_version = NULL);
     void shutdown();
 
@@ -76,7 +79,7 @@ public:
     bool createDeviceObjects();
 
     //
-    void switchContext(GLFWwindow* window, ImGuiContext* ctx);
+    void switchContext();//GLFWwindow* window, ImGuiContext* ctx);
 };
 
 #endif /* IUImplementation_hpp */
