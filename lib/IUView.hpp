@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <vector>
 
-#include "IUObserver.hpp"
+#include "IUAction.hpp"
 
 #include "IULayer.hpp"
 
@@ -20,18 +20,15 @@ class IUWindowController;
 
 class IUView : public IULayer {
 
-//    std::vector<IUObserver*> _observers;
-    std::map<int, std::vector<IUObserver*> > _keyedObservers;
+//    std::vector<IUAction*> _observers;
+    std::map<int, std::vector<IUAction*> > _keyedObservers;
 
 protected:
 public:
-//    void addObserver(IUObserver* o);
-//    void removeObserver(IUObserver* o);
-//    void removeAllObservers();
 
-    void addObserverFor(int k, IUObserver* o);
-    void removeObserverFor(int k, IUObserver* o);
-    void removeAllObserversFor(int k);
+    void addAction(int k, IUAction* o);
+    void removeAction(int k, IUAction* o);
+    void removeAllActions(int k);
 
     //---
 

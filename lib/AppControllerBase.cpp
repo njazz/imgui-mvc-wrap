@@ -16,7 +16,6 @@ void AppControllerBase::_windowDrawLoop()
 {
     while (_windowControllers.size()) {
 
-
         // text edit workaround
         bool textEditFix = false;
         for (int i = 0; i < _windowControllers.size(); i++) {
@@ -32,8 +31,6 @@ void AppControllerBase::_windowDrawLoop()
             w->pollEvents = (textEditFix) ? w->isEditingText : true;
             w->draw();
         }
-
-
 
         // close windows
         int i = 0;

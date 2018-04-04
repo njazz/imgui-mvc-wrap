@@ -23,7 +23,7 @@ void IUMenuBase::_itemAction(int action)
 {
     if (action) {
         if (_actions[action]) {
-            _actions[action]->updated();
+            _actions[action]->action();
             if (windowController)
                 windowController->restoreContext();
         }

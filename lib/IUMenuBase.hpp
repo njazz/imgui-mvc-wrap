@@ -1,6 +1,6 @@
 //
 
-#include "IUObserver.hpp"
+#include "IUAction.hpp"
 #include "imgui.h"
 #include <cctype>
 #include <cstdlib>
@@ -18,7 +18,7 @@
 #include "IUWindowController.hpp"
 
 class IUMenuBase {
-    std::map<int, IUObserver*> _actions;
+    std::map<int, IUAction*> _actions;
     std::map<int, IUShortcut*> _shortcuts;
 
 public:
@@ -37,7 +37,7 @@ public:
 
     void menu();
 
-    void setAction(int key, IUObserver* a) { _actions[key] = a; };
+    void setAction(int key, IUAction* a) { _actions[key] = a; };
 };
 
 #endif

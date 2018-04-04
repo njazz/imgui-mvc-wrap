@@ -7,31 +7,31 @@
 
 #include "IUView.hpp"
 
-//void IUView::addObserver(IUObserver* o)
+//void IUView::addObserver(IUAction* o)
 //{
 //    o->sender = this;
 //    _observers.push_back(o);
 //};
-//void IUView::removeObserver(IUObserver* o){};
+//void IUView::removeObserver(IUAction* o){};
 //void IUView::removeAllObservers()
 //{
 //    _observers.clear();
 //};
 
-void IUView::addObserverFor(int k, IUObserver* o)
+void IUView::addAction(int k, IUAction* o)
 {
     o->sender = this;
     _keyedObservers[k].push_back(o);
 };
 
-void IUView::removeObserverFor(int k, IUObserver* o)
+void IUView::removeAction(int k, IUAction* o)
 {
     auto it = std::find(_keyedObservers[k].begin(), _keyedObservers[k].end(), o);
     if (it != _keyedObservers[k].end())
         _keyedObservers[k].erase(it);
 };
 
-void IUView::removeAllObserversFor(int k)
+void IUView::removeAllActions(int k)
 {
     _keyedObservers[k].clear();
 };
@@ -40,7 +40,7 @@ void IUView::removeAllObserversFor(int k)
 
 //void IUView::updated()
 //{
-//    for (IUObserver* o : _observers) {
+//    for (IUAction* o : _observers) {
 //        o->sender = this;
 //        o->updated();
 //    }
@@ -48,8 +48,8 @@ void IUView::removeAllObserversFor(int k)
 
 void IUView::updated(int key)
 {
-    for (IUObserver* o : _keyedObservers[key]) {
+    for (IUAction* o : _keyedObservers[key]) {
         o->sender = this;
-        o->updated();
+        o->action();
     }
 }

@@ -37,11 +37,13 @@ public:
         ImGui::PlotHistogram("test1",  _array, 16);
 
         if (ImGui::Button("test")) {
-            updated();
+            updated(oUpdated);
         };
 
         ImGui::End();
     };
+    
+    static const int oUpdated = 100;
 };
 
 #endif /* DemoView_hpp */
