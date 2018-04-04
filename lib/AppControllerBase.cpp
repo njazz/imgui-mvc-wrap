@@ -8,7 +8,9 @@
 
 #include "AppControllerBase.hpp"
 
-#include "glfw3.h"
+//#include "glfw3.h"
+#include "IUWindowController.hpp"
+#include "IUViewController.hpp"
 
 void AppControllerBase::_windowDrawLoop()
 {

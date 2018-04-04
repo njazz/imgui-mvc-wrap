@@ -14,9 +14,13 @@
 #include "imgui.h"
 //struct GLFWwindow;
 
+#include "glcorearb.h"
+
+#define GL_ARB_shader_objects
 // GL3W/GLFW
 #include "gl3w.h" // This example is using gl3w to access OpenGL functions (because it is small). You may use glew/glad/glLoadGen/etc. whatever already works for you.
 #include "glfw3.h"
+
 #ifdef _WIN32
 #undef APIENTRY
 #define GLFW_EXPOSE_NATIVE_WIN32
@@ -30,7 +34,7 @@ class IUImplementation {
     // GLFW data
     GLFWwindow* g_Window = NULL;
     double g_Time = 0.0f;
-//    bool g_MouseJustPressed[3] = { false, false, false };
+    //    bool g_MouseJustPressed[3] = { false, false, false };
     GLFWcursor* g_MouseCursors[ImGuiMouseCursor_COUNT] = { 0 };
 
     // OpenGL3 data
@@ -43,7 +47,7 @@ class IUImplementation {
 
     //
     static std::map<GLFWwindow*, bool[3]> g_mousePressed;
-    
+
     // ---
 
     void _renderDrawData(ImDrawData* draw_data);

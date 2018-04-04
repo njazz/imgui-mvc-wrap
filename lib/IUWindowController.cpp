@@ -9,6 +9,9 @@
 
 #include "IUWindowController.hpp"
 
+#include <iostream>
+#include <fstream>
+
 //#include "IUImplementation.hpp"
 
 //IUWindowController::IUWindowController()
@@ -99,7 +102,13 @@ int IUWindowController::_initWindow()
 
     // Load Fonts
 
-    io.Fonts->AddFontFromFileTTF("../Resources/fonts/Arial-Unicode-Regular.ttf", 32.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
+    std::ifstream fontfile("../Resources/fonts/Arial-Unicode-Regular.ttf");
+
+    if (fontfile.good()) {
+        io.Fonts->AddFontFromFileTTF("../Resources/fonts/Arial-Unicode-Regular.ttf", 32.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
+    } else {
+        printf("font file not found!\n");
+    }
     io.DisplayFramebufferScale = ImVec2(2, 2);
     io.FontGlobalScale = 0.5;
 
@@ -123,7 +132,6 @@ void IUWindowController::_freeWindow()
 void IUWindowController::_prepareRender()
 {
     core.switchContext(glWindow, _context);
-
 
     if (pollEvents)
         glfwPollEvents();

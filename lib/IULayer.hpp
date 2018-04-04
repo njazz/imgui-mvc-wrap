@@ -20,8 +20,8 @@ protected:
     std::vector<IULayer*> _subviews;
     void _drawSubviews();
 
-    IULayer* _parent;
-    IUWindowController* _windowController;
+    IULayer* _parent = 0;
+    IUWindowController* _windowController = 0;
 
 public:
     virtual void draw();

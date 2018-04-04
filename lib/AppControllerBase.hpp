@@ -10,11 +10,9 @@
 #define AppControllerBase_hpp
 
 #include <stdio.h>
-
-#include "IUWindowController.hpp"
-#include "IUViewController.hpp"
-
 #include <vector>
+
+class IUWindowController;
 
 class AppControllerBase {
 protected:

@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31C9C8212075054800C68589 /* imgui_mvc_tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8202075054800C68589 /* imgui_mvc_tests.mm */; };
+		31C9C84C2075057F00C68589 /* AppControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8272075057F00C68589 /* AppControllerBase.cpp */; };
+		31C9C84D2075057F00C68589 /* IUImplementation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8292075057F00C68589 /* IUImplementation.cpp */; };
+		31C9C84E2075057F00C68589 /* IULayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C82B2075057F00C68589 /* IULayer.cpp */; };
+		31C9C84F2075057F00C68589 /* IUMainMenuBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C82D2075057F00C68589 /* IUMainMenuBase.cpp */; };
+		31C9C8502075057F00C68589 /* IUMenuBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C82F2075057F00C68589 /* IUMenuBase.cpp */; };
+		31C9C8512075057F00C68589 /* IUObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8312075057F00C68589 /* IUObserver.cpp */; };
+		31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8332075057F00C68589 /* IUShortcut.cpp */; };
+		31C9C8532075057F00C68589 /* IUView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8352075057F00C68589 /* IUView.cpp */; };
+		31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8372075057F00C68589 /* IUViewController.cpp */; };
+		31C9C8552075057F00C68589 /* IUWindowController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8392075057F00C68589 /* IUWindowController.cpp */; };
+		31C9C8562075057F00C68589 /* gl3w.c in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C83C2075057F00C68589 /* gl3w.c */; };
+		31C9C8572075057F00C68589 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8442075057F00C68589 /* imgui.cpp */; };
+		31C9C8582075057F00C68589 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8462075057F00C68589 /* imgui_demo.cpp */; };
+		31C9C8592075057F00C68589 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8472075057F00C68589 /* imgui_draw.cpp */; };
+		31C9C85B207506C800C68589 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C9C85A207506C800C68589 /* libglfw.dylib */; };
+		31C9C86220750D4700C68589 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 31C9C86120750D4600C68589 /* fonts */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		31C9C81D2075054800C68589 /* imgui-mvc-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "imgui-mvc-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31C9C8202075054800C68589 /* imgui_mvc_tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imgui_mvc_tests.mm; sourceTree = "<group>"; };
+		31C9C8222075054800C68589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31C9C8272075057F00C68589 /* AppControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppControllerBase.cpp; sourceTree = "<group>"; };
+		31C9C8282075057F00C68589 /* AppControllerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AppControllerBase.hpp; sourceTree = "<group>"; };
+		31C9C8292075057F00C68589 /* IUImplementation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUImplementation.cpp; sourceTree = "<group>"; };
+		31C9C82A2075057F00C68589 /* IUImplementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUImplementation.hpp; sourceTree = "<group>"; };
+		31C9C82B2075057F00C68589 /* IULayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IULayer.cpp; sourceTree = "<group>"; };
+		31C9C82C2075057F00C68589 /* IULayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IULayer.hpp; sourceTree = "<group>"; };
+		31C9C82D2075057F00C68589 /* IUMainMenuBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUMainMenuBase.cpp; sourceTree = "<group>"; };
+		31C9C82E2075057F00C68589 /* IUMainMenuBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUMainMenuBase.hpp; sourceTree = "<group>"; };
+		31C9C82F2075057F00C68589 /* IUMenuBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUMenuBase.cpp; sourceTree = "<group>"; };
+		31C9C8302075057F00C68589 /* IUMenuBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUMenuBase.hpp; sourceTree = "<group>"; };
+		31C9C8312075057F00C68589 /* IUObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUObserver.cpp; sourceTree = "<group>"; };
+		31C9C8322075057F00C68589 /* IUObserver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUObserver.hpp; sourceTree = "<group>"; };
+		31C9C8332075057F00C68589 /* IUShortcut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUShortcut.cpp; sourceTree = "<group>"; };
+		31C9C8342075057F00C68589 /* IUShortcut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUShortcut.hpp; sourceTree = "<group>"; };
+		31C9C8352075057F00C68589 /* IUView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUView.cpp; sourceTree = "<group>"; };
+		31C9C8362075057F00C68589 /* IUView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUView.hpp; sourceTree = "<group>"; };
+		31C9C8372075057F00C68589 /* IUViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUViewController.cpp; sourceTree = "<group>"; };
+		31C9C8382075057F00C68589 /* IUViewController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUViewController.hpp; sourceTree = "<group>"; };
+		31C9C8392075057F00C68589 /* IUWindowController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUWindowController.cpp; sourceTree = "<group>"; };
+		31C9C83A2075057F00C68589 /* IUWindowController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUWindowController.hpp; sourceTree = "<group>"; };
+		31C9C83C2075057F00C68589 /* gl3w.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gl3w.c; sourceTree = "<group>"; };
+		31C9C83D2075057F00C68589 /* gl3w.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl3w.h; sourceTree = "<group>"; };
+		31C9C83E2075057F00C68589 /* glcorearb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glcorearb.h; sourceTree = "<group>"; };
+		31C9C8402075057F00C68589 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
+		31C9C8412075057F00C68589 /* glfw3native.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
+		31C9C8432075057F00C68589 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
+		31C9C8442075057F00C68589 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
+		31C9C8452075057F00C68589 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
+		31C9C8462075057F00C68589 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_demo.cpp; sourceTree = "<group>"; };
+		31C9C8472075057F00C68589 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
+		31C9C8482075057F00C68589 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
+		31C9C8492075057F00C68589 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
+		31C9C84A2075057F00C68589 /* stb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_textedit.h; sourceTree = "<group>"; };
+		31C9C84B2075057F00C68589 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
+		31C9C85A207506C800C68589 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.dylib; sourceTree = "<group>"; };
+		31C9C86120750D4600C68589 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../fonts; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31C9C81A2075054800C68589 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31C9C85B207506C800C68589 /* libglfw.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31C9C8122075053000C68589 = {
+			isa = PBXGroup;
+			children = (
+				31C9C86120750D4600C68589 /* fonts */,
+				31C9C85A207506C800C68589 /* libglfw.dylib */,
+				31C9C83B2075057F00C68589 /* GL */,
+				31C9C83F2075057F00C68589 /* GLFW */,
+				31C9C8422075057F00C68589 /* imgui */,
+				31C9C8262075057F00C68589 /* lib */,
+				31C9C81F2075054800C68589 /* imgui-mvc-tests */,
+				31C9C81E2075054800C68589 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		31C9C81E2075054800C68589 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31C9C81D2075054800C68589 /* imgui-mvc-tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31C9C81F2075054800C68589 /* imgui-mvc-tests */ = {
+			isa = PBXGroup;
+			children = (
+				31C9C8202075054800C68589 /* imgui_mvc_tests.mm */,
+				31C9C8222075054800C68589 /* Info.plist */,
+			);
+			path = "imgui-mvc-tests";
+			sourceTree = "<group>";
+		};
+		31C9C8262075057F00C68589 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				31C9C8272075057F00C68589 /* AppControllerBase.cpp */,
+				31C9C8282075057F00C68589 /* AppControllerBase.hpp */,
+				31C9C8292075057F00C68589 /* IUImplementation.cpp */,
+				31C9C82A2075057F00C68589 /* IUImplementation.hpp */,
+				31C9C82B2075057F00C68589 /* IULayer.cpp */,
+				31C9C82C2075057F00C68589 /* IULayer.hpp */,
+				31C9C82D2075057F00C68589 /* IUMainMenuBase.cpp */,
+				31C9C82E2075057F00C68589 /* IUMainMenuBase.hpp */,
+				31C9C82F2075057F00C68589 /* IUMenuBase.cpp */,
+				31C9C8302075057F00C68589 /* IUMenuBase.hpp */,
+				31C9C8312075057F00C68589 /* IUObserver.cpp */,
+				31C9C8322075057F00C68589 /* IUObserver.hpp */,
+				31C9C8332075057F00C68589 /* IUShortcut.cpp */,
+				31C9C8342075057F00C68589 /* IUShortcut.hpp */,
+				31C9C8352075057F00C68589 /* IUView.cpp */,
+				31C9C8362075057F00C68589 /* IUView.hpp */,
+				31C9C8372075057F00C68589 /* IUViewController.cpp */,
+				31C9C8382075057F00C68589 /* IUViewController.hpp */,
+				31C9C8392075057F00C68589 /* IUWindowController.cpp */,
+				31C9C83A2075057F00C68589 /* IUWindowController.hpp */,
+			);
+			name = lib;
+			path = ../lib;
+			sourceTree = "<group>";
+		};
+		31C9C83B2075057F00C68589 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				31C9C83C2075057F00C68589 /* gl3w.c */,
+				31C9C83D2075057F00C68589 /* gl3w.h */,
+				31C9C83E2075057F00C68589 /* glcorearb.h */,
+			);
+			name = GL;
+			path = ../GL;
+			sourceTree = "<group>";
+		};
+		31C9C83F2075057F00C68589 /* GLFW */ = {
+			isa = PBXGroup;
+			children = (
+				31C9C8402075057F00C68589 /* glfw3.h */,
+				31C9C8412075057F00C68589 /* glfw3native.h */,
+			);
+			name = GLFW;
+			path = ../GLFW;
+			sourceTree = "<group>";
+		};
+		31C9C8422075057F00C68589 /* imgui */ = {
+			isa = PBXGroup;
+			children = (
+				31C9C8432075057F00C68589 /* imconfig.h */,
+				31C9C8442075057F00C68589 /* imgui.cpp */,
+				31C9C8452075057F00C68589 /* imgui.h */,
+				31C9C8462075057F00C68589 /* imgui_demo.cpp */,
+				31C9C8472075057F00C68589 /* imgui_draw.cpp */,
+				31C9C8482075057F00C68589 /* imgui_internal.h */,
+				31C9C8492075057F00C68589 /* stb_rect_pack.h */,
+				31C9C84A2075057F00C68589 /* stb_textedit.h */,
+				31C9C84B2075057F00C68589 /* stb_truetype.h */,
+			);
+			name = imgui;
+			path = ../imgui;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		31C9C81C2075054800C68589 /* imgui-mvc-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31C9C8232075054800C68589 /* Build configuration list for PBXNativeTarget "imgui-mvc-tests" */;
+			buildPhases = (
+				31C9C8192075054800C68589 /* Sources */,
+				31C9C81A2075054800C68589 /* Frameworks */,
+				31C9C81B2075054800C68589 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "imgui-mvc-tests";
+			productName = "imgui-mvc-tests";
+			productReference = 31C9C81D2075054800C68589 /* imgui-mvc-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31C9C8132075053000C68589 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				TargetAttributes = {
+					31C9C81C2075054800C68589 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 31C9C8162075053000C68589 /* Build configuration list for PBXProject "imgui-mvc-tests" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 31C9C8122075053000C68589;
+			productRefGroup = 31C9C81E2075054800C68589 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31C9C81C2075054800C68589 /* imgui-mvc-tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31C9C81B2075054800C68589 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31C9C86220750D4700C68589 /* fonts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31C9C8192075054800C68589 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31C9C8562075057F00C68589 /* gl3w.c in Sources */,
+				31C9C8572075057F00C68589 /* imgui.cpp in Sources */,
+				31C9C84C2075057F00C68589 /* AppControllerBase.cpp in Sources */,
+				31C9C8592075057F00C68589 /* imgui_draw.cpp in Sources */,
+				31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */,
+				31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */,
+				31C9C8512075057F00C68589 /* IUObserver.cpp in Sources */,
+				31C9C84D2075057F00C68589 /* IUImplementation.cpp in Sources */,
+				31C9C84F2075057F00C68589 /* IUMainMenuBase.cpp in Sources */,
+				31C9C8502075057F00C68589 /* IUMenuBase.cpp in Sources */,
+				31C9C8552075057F00C68589 /* IUWindowController.cpp in Sources */,
+				31C9C8532075057F00C68589 /* IUView.cpp in Sources */,
+				31C9C8212075054800C68589 /* imgui_mvc_tests.mm in Sources */,
+				31C9C8582075057F00C68589 /* imgui_demo.cpp in Sources */,
+				31C9C84E2075057F00C68589 /* IULayer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		31C9C8172075053000C68589 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		31C9C8182075053000C68589 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		31C9C8242075054800C68589 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 85478UQJJR;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "imgui-mvc-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexnadzharov.imgui-mvc-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		31C9C8252075054800C68589 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 85478UQJJR;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "imgui-mvc-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexnadzharov.imgui-mvc-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31C9C8162075053000C68589 /* Build configuration list for PBXProject "imgui-mvc-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31C9C8172075053000C68589 /* Debug */,
+				31C9C8182075053000C68589 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31C9C8232075054800C68589 /* Build configuration list for PBXNativeTarget "imgui-mvc-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31C9C8242075054800C68589 /* Debug */,
+				31C9C8252075054800C68589 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 31C9C8132075053000C68589 /* Project object */;
+}
