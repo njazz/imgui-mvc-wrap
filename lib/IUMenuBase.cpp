@@ -9,12 +9,14 @@ void IUMenuBase::shortcut(int action, IUShortcut shortcut)
         _itemAction(action);
 }
 
-void IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool checked, bool enabled)
+bool IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool checked, bool enabled)
 {
     if (ImGui::MenuItem(name.c_str(), shortcut.str().c_str(), checked, enabled)) {
 
         _itemAction(action);
+        return true;
     }
+    return false;
 }
 
 void IUMenuBase::_itemAction(int action)

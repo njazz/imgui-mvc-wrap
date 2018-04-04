@@ -22,8 +22,8 @@
 		31C9C8572075057F00C68589 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8442075057F00C68589 /* imgui.cpp */; };
 		31C9C8582075057F00C68589 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8462075057F00C68589 /* imgui_demo.cpp */; };
 		31C9C8592075057F00C68589 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8472075057F00C68589 /* imgui_draw.cpp */; };
-		31C9C85B207506C800C68589 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C9C85A207506C800C68589 /* libglfw.dylib */; };
 		31C9C86220750D4700C68589 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 31C9C86120750D4600C68589 /* fonts */; };
+		31EED95C20753FA400089D77 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EED95A20753F5B00089D77 /* libglfw.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +64,9 @@
 		31C9C8492075057F00C68589 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
 		31C9C84A2075057F00C68589 /* stb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_textedit.h; sourceTree = "<group>"; };
 		31C9C84B2075057F00C68589 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
-		31C9C85A207506C800C68589 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.dylib; sourceTree = "<group>"; };
 		31C9C86120750D4600C68589 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../fonts; sourceTree = "<group>"; };
+		31EED95820753F4700089D77 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = "../GLFW/GLFW-3.3-bin-OSX/libglfw.3.3.dylib"; sourceTree = "<group>"; };
+		31EED95A20753F5B00089D77 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = "../GLFW/GLFW-3.3-bin-OSX/libglfw.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31C9C85B207506C800C68589 /* libglfw.dylib in Frameworks */,
+				31EED95C20753FA400089D77 /* libglfw.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				31C9C86120750D4600C68589 /* fonts */,
-				31C9C85A207506C800C68589 /* libglfw.dylib */,
+				31EED95820753F4700089D77 /* libglfw.3.3.dylib */,
+				31EED95A20753F5B00089D77 /* libglfw.dylib */,
 				31C9C83B2075057F00C68589 /* GL */,
 				31C9C83F2075057F00C68589 /* GLFW */,
 				31C9C8422075057F00C68589 /* imgui */,

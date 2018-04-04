@@ -28,7 +28,7 @@ public:
 
     void shortcut(int action = 0, IUShortcut shortcut = IUShortcut::None());
 
-    void item(std::string name, int action = 0, IUShortcut shortcut = IUShortcut::None(), bool checked = false, bool enabled = true);
+    bool item(std::string name, int action = 0, IUShortcut shortcut = IUShortcut::None(), bool checked = false, bool enabled = true);
 
     void _itemAction(int action);
 
