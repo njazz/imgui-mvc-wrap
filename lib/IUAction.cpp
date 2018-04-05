@@ -5,20 +5,20 @@
 //  Created by Alex on 22/03/2018.
 //
 
-#include "IUObserver.hpp"
+#include "IUAction.hpp"
 
-IUObserver::IUObserver(std::function<void(void)> fn)
+IUAction::IUAction(std::function<void(void)> fn)
 {
     _callback = fn;
 }
 
-void IUObserver::updated()
+void IUAction::action()
 {
     if (_callback)
         _callback();
 };
 
-void IUObserver::setCallback(std::function<void ()> fn)
+void IUAction::setCallback(std::function<void ()> fn)
 {
     _callback = fn;
 }

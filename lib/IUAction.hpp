@@ -1,5 +1,5 @@
 //
-//  IUObserver.hpp
+//  IUAction.hpp
 //  imguiController
 //
 //  Created by Alex on 22/03/2018.
@@ -13,19 +13,19 @@
 
 class IUView;
 
-class IUObserver {
+class IUAction {
     std::function<void(void)> _callback = 0;
 
 public:
-    explicit IUObserver(std::function<void(void)> fn);
+    explicit IUAction(std::function<void(void)> fn);
 
     // remove later?
-    IUObserver(){};
+    IUAction(){};
     void setCallback(std::function<void(void)> fn);
 
-    void updated();
+    void action();
 
-    void operator()(){updated();}
+    void operator()(){action();}
     
     void* userObject = 0;
     IUView* sender = 0;
