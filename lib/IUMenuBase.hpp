@@ -38,6 +38,13 @@ public:
     void menu();
 
     void setAction(int key, IUAction* a) { _actions[key] = a; };
+
+    // todo: better way
+    void copyActionsFrom(IUMenuBase* src)
+    {
+        _actions = src->_actions;
+        _shortcuts = src->_shortcuts;
+    }
 };
 
 #endif

@@ -80,6 +80,9 @@ public:
 
     //
     void switchContext();//GLFWwindow* window, ImGuiContext* ctx);
+
+    // todo
+    float zoomValue = 2.0;
 };
 
 #endif /* IUImplementation_hpp */

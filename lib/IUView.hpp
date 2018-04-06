@@ -23,7 +23,9 @@ class IUView : public IULayer {
 //    std::vector<IUAction*> _observers;
     std::map<int, std::vector<IUAction*> > _keyedObservers;
 
-protected:
+//protected:
+    float x;
+    float y;
 public:
 
     void addAction(int k, IUAction* o);
@@ -32,7 +34,6 @@ public:
 
     //---
 
-//    void updated();
     void updated(int key);
 
 
@@ -41,6 +42,11 @@ public:
         if (_parent)
             _parent->removeSubview(this);
     }
+    
+    void setX(float x_){x = x_;}
+    void setY(float y_){y = y_;}
+    float& getX(){return x;}
+    float& getY(){return y;}
 };
 
 #endif /* IUView_hpp */

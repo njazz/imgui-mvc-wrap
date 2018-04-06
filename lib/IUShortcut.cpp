@@ -32,12 +32,17 @@ bool IUShortcut::keyPressed()
     bool ret = true;
 
     for (auto k : _keys) {
-        ret = k.keyPressed();
+        ret = ret && k.keyPressed();
     }
 
-    if (ret)
-        for (int i = 0; i < 512; i++)
-            ImGui::GetIO().KeysDown[i] = false;
+    if (ret && 0)
+    //        for (int i = 0; i < 512; i++)
+    //            ImGui::GetIO().KeysDown[i] = false;
+    {
+        for (auto k : _keys)
+            for (auto kc : k.keyCodes())
+                ImGui::GetIO().KeysDown[kc] = false;
+    }
 
     return ret;
 }

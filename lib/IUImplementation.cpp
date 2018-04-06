@@ -96,8 +96,8 @@ void IUImplementation::renderDrawData(ImDrawData* draw_data)
     // Setup viewport, orthographic projection matrix
     glViewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height);
     const float ortho_projection[4][4] = {
-        { 2.0f / io.DisplaySize.x, 0.0f, 0.0f, 0.0f },
-        { 0.0f, 2.0f / -io.DisplaySize.y, 0.0f, 0.0f },
+        { zoomValue / io.DisplaySize.x, 0.0f, 0.0f, 0.0f },
+        { 0.0f, zoomValue/ -io.DisplaySize.y, 0.0f, 0.0f },
         { 0.0f, 0.0f, -1.0f, 0.0f },
         { -1.0f, 1.0f, 0.0f, 1.0f },
     };
