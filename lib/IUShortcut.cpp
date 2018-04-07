@@ -35,7 +35,7 @@ bool IUShortcut::keyPressed()
         ret = ret && k.keyPressed();
     }
 
-    if (ret && 0)
+    if (ret)
     //        for (int i = 0; i < 512; i++)
     //            ImGui::GetIO().KeysDown[i] = false;
     {

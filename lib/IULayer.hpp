@@ -13,6 +13,8 @@
 
 #include <vector>
 
+#include "imgui.h"
+
 class IUWindowController;
 
 class IULayer {
@@ -23,6 +25,8 @@ protected:
     IULayer* _parent = 0;
     IUWindowController* _windowController = 0;
 
+    float _x = 0;;
+    float _y = 0;
 public:
     virtual void draw();
 
@@ -36,12 +40,16 @@ public:
     virtual void setWindowController(IUWindowController* w);
     IUWindowController* windowController();
 
-    float x;
-    float y;
+    inline float& x() {return _x;};
+    inline float& y() {return _y;};
     float width;
     float height;
+    
+    ImVec2 offset = ImVec2(0,0);
 
     bool hidden = false;
+
+    void updateOffset(){offset = ImGui::GetCursorScreenPos();}
 };
 
 #endif /* IULayer_hpp */

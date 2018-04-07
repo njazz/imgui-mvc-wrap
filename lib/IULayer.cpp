@@ -19,8 +19,14 @@ void IULayer::draw()
 
 void IULayer::_drawSubviews()
 {
+    ImVec2 offset = ImGui::GetCursorScreenPos();
+    //printf("offset %f %f\n", offset.x,offset.y);
+    
     for (int i=0;i<_subviews.size();i++)
+    {
+        _subviews[i]->offset = offset;
         _subviews[i]->draw();
+    }
 };
 
 void IULayer::addSubview(IULayer* v)
