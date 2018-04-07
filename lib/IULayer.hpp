@@ -11,13 +11,16 @@
 
 #include <stdio.h>
 
+#include <string>
 #include <vector>
 
+#include "IULayerBase.hpp"
 #include "imgui.h"
 
 class IUWindowController;
 
-class IULayer {
+// imgui child frame
+class IULayer : public IULayerBase {
 protected:
     std::vector<IULayer*> _subviews;
     void _drawSubviews();
@@ -25,31 +28,41 @@ protected:
     IULayer* _parent = 0;
     IUWindowController* _windowController = 0;
 
-    float _x = 0;;
-    float _y = 0;
+    ImVec2 _getContentSize()
+    {
+        return ImVec2(contentSize.x < width ? width : contentSize.x, contentSize.y < height ? height : contentSize.y);
+    }
+
+    void _setBounds();
+
 public:
+    bool manualLayout = false;
+
+    float padding = 0;
+
+    IULayer();
+
     virtual void draw();
 
     void addSubview(IULayer* v);
-    void removeSubview(IULayer* v)
-    {
-        _subviews.erase(std::remove(_subviews.begin(), _subviews.end(), v), _subviews.end());
-    }
+    void removeSubview(IULayer* v);
     void removeAllSubviews();
 
     virtual void setWindowController(IUWindowController* w);
     IUWindowController* windowController();
 
-    inline float& x() {return _x;};
-    inline float& y() {return _y;};
-    float width;
-    float height;
-    
-    ImVec2 offset = ImVec2(0,0);
+    //
+    ImVec2 offset = ImVec2(0, 0);
+    ImVec2 contentSize = ImVec2(0, 0);
 
-    bool hidden = false;
+    ImVec2 positionInParent()
+    {
+        if (!_parent)
+            return pos();
 
-    void updateOffset(){offset = ImGui::GetCursorScreenPos();}
+        return ImVec2(x + offset.x, y + offset.y);
+    }
+    void updateOffset() { offset = ImGui::GetCursorScreenPos(); }
 };
 
 #endif /* IULayer_hpp */

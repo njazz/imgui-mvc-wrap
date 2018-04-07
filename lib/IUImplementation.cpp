@@ -367,8 +367,6 @@ void IUImplementation::_installCallbacks(GLFWwindow* window)
 
 bool IUImplementation::init(GLFWwindow* window, bool install_callbacks, const char* glsl_version)
 {
-    
-    
     ImGui::SetCurrentContext(0);
     context = ImGui::CreateContext();
     
@@ -561,3 +559,4 @@ void IUImplementation::newFrame()
     // Start the frame. This call will update the io.WantCaptureMouse, io.WantCaptureKeyboard flag that you can use to dispatch inputs (or not) to your application.
     ImGui::NewFrame();
 }
+

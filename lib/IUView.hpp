@@ -18,17 +18,26 @@
 
 #include "imgui.h"
 
-class IUWindowController;
+#include <string>
 
+class IUWindowController;
+class IUMenuBase;
+
+// imgui "child frame"
 class IUView : public IULayer {
 
-    //    std::vector<IUAction*> _observers;
-    std::map<int, std::vector<IUAction*> > _keyedObservers;
-
-    float _cx = 0;
-    float _cy = 0;
+    std::map<int, std::vector<IUAction*> > _actions;
 
 public:
+    IUView()
+    {
+        idString = "V" + std::to_string((long)this);
+    }
+
+    IUMenuBase* contextMenu = 0;
+
+    float alpha = 0.75;
+
     void addAction(int k, IUAction* o);
     void removeAction(int k, IUAction* o);
     void removeAllActions(int k);
@@ -37,33 +46,9 @@ public:
 
     void updated(int key);
 
-    void removeFromParentView()
-    {
-        if (_parent)
-            _parent->removeSubview(this);
-    }
+    void removeFromParentView();
 
-    void setX(float x) {_x = x;
-                       // if (_parent) _x += _parent->x();
-                       }
-    void setY(float y) { _y = y;
-                         //if (_parent) _y += _parent->y();
-                       }
-
-    float& getX()
-    {
-        _cx = _x + offset.x;
-        if (_parent) _cx += _parent->x();
-        return _cx ;
-    }
-    float& getY()
-    {
-        _cy = _y + offset.y;
-        if (_parent) _cy += _parent->y();
-        return _cy;
-    }
-    
-    
+    virtual void draw() override;
 };
 
 #endif /* IUView_hpp */

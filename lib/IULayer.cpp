@@ -10,21 +10,51 @@
 
 #include "IUWindowController.hpp"
 
+#include "imgui_internal.h"
+
+IULayer::IULayer()
+    : IULayerBase()
+{
+    idString = "L" + std::to_string((long)this);
+}
+
+void IULayer::_setBounds()
+{
+    // TODO?
+//    const ImRect rect(x,y,width,height);
+//    ImGui::ItemSize(rect, padding);
+//    ImGui::ItemAdd(rect, 0, &rect);
+}
 void IULayer::draw()
 {
-    if (hidden)
-        return;
+    if (manualLayout)
+        ImGui::SetCursorPos(pos());
+
+    ImGui::SetNextWindowContentSize(_getContentSize());
+
+    auto wp = ImGui::GetStyle().WindowPadding;
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
+    
+    ImGui::BeginChild(ImGui::GetID(idString.c_str()), size());
+    
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,wp);
+    
+    _setBounds();
+    drawLayerContents();
     _drawSubviews();
+    
+    ImGui::PopStyleVar();
+    
+    ImGui::EndChild();
+    
+    ImGui::PopStyleVar();
 };
 
 void IULayer::_drawSubviews()
 {
-    ImVec2 offset = ImGui::GetCursorScreenPos();
-    //printf("offset %f %f\n", offset.x,offset.y);
+    if (hidden) return;
     
-    for (int i=0;i<_subviews.size();i++)
-    {
-        _subviews[i]->offset = offset;
+    for (int i = 0; i < _subviews.size(); i++) {
         _subviews[i]->draw();
     }
 };
@@ -34,6 +64,11 @@ void IULayer::addSubview(IULayer* v)
     _subviews.push_back(v);
     v->_parent = this;
     v->setWindowController(_windowController);
+}
+
+void IULayer::removeSubview(IULayer* v)
+{
+    _subviews.erase(std::remove(_subviews.begin(), _subviews.end(), v), _subviews.end());
 }
 
 void IULayer::removeAllSubviews()
@@ -51,4 +86,8 @@ void IULayer::setWindowController(IUWindowController* w)
         v->setWindowController(w);
     }
 }
-IUWindowController* IULayer::windowController() { return _windowController; }
+
+IUWindowController* IULayer::windowController()
+{
+    return _windowController;
+}

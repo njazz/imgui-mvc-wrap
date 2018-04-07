@@ -37,27 +37,40 @@ void IUView::updated(int key)
 
 // ---
 
-void IUView::draw()
+void IUView::removeFromParentView()
 {
+    if (_parent)
+        _parent->removeSubview(this);
+}
+
+virtual void IUView::draw() override
+{
+
     if (manualLayout)
         ImGui::SetCursorPos(pos());
-    
-    ImGui::SetNextWindowContentSize(_getContentSize());
-    
+    else {
+        x = ImGui::GetCursorPosX();
+        y = ImGui::GetCursorPosY();
+    }
+
     auto wp = ImGui::GetStyle().WindowPadding;
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
-    
+
+    ImGui::SetNextWindowContentSize(_getContentSize());
+    ImGui::SetNextWindowBgAlpha(alpha);
+
     ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size());
-    
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,wp);
-    
+
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
+
     _setBounds();
     drawLayerContents();
     _drawSubviews();
-    
+
     ImGui::PopStyleVar();
-    
+
     ImGui::EndChildFrame();
-    
+
     ImGui::PopStyleVar();
-};
+
+}
