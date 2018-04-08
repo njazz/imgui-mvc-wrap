@@ -38,10 +38,8 @@ void IUViewController::draw()
     
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
 
-    //IUView::draw();
-    _setBounds();
-    drawLayerContents();
-    _drawSubviews();
+    _drawAllContents();
+    _handleMouse();
     
     ImGui::PopStyleVar();
     

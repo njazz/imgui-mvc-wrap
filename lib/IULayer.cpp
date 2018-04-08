@@ -25,6 +25,13 @@ void IULayer::_setBounds()
 //    ImGui::ItemSize(rect, padding);
 //    ImGui::ItemAdd(rect, 0, &rect);
 }
+
+void IULayer::_drawAllContents()
+{
+    _setBounds();
+    drawLayerContents();
+    _drawSubviews();
+}
 void IULayer::draw()
 {
     if (manualLayout)
@@ -39,9 +46,7 @@ void IULayer::draw()
     
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,wp);
     
-    _setBounds();
-    drawLayerContents();
-    _drawSubviews();
+    _drawAllContents();
     
     ImGui::PopStyleVar();
     

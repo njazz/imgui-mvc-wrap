@@ -81,19 +81,17 @@ int IUWindowController::_initWindow()
 #endif
     core.glWindow = glfwCreateWindow(width, height, _title.c_str(), NULL, NULL);
     glfwMakeContextCurrent(core.glWindow);
-    
+
     glfwSwapInterval(1); // Enable vsync
     gl3wInit();
 
     // Setup ImGui binding
 
-    
-
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;   // Enable Gamepad Controls
 
     core.init(core.glWindow, true);
-    
+
     ImGuiIO& io = ImGui::GetIO();
 
     // Setup style
@@ -121,9 +119,8 @@ int IUWindowController::_initWindow()
 void IUWindowController::_freeWindow()
 {
 
-    core.switchContext();//glWindow, _context);
+    core.switchContext(); //glWindow, _context);
     core.shutdown();
-    
 }
 
 // ---
@@ -131,7 +128,7 @@ void IUWindowController::_freeWindow()
 
 void IUWindowController::_prepareRender()
 {
-    core.switchContext();//glWindow, _context);
+    core.switchContext(); //glWindow, _context);
 
     if (pollEvents)
         glfwPollEvents();
@@ -186,7 +183,7 @@ void IUWindowController::resize()
 
 void IUWindowController::restoreContext()
 {
-    core.switchContext();//glWindow, _context);
+    core.switchContext(); //glWindow, _context);
 }
 
 void IUWindowController::setTitle(std::string t)

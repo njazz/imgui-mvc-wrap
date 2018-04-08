@@ -28,6 +28,8 @@ class IUView : public IULayer {
 
     std::map<int, std::vector<IUAction*> > _actions;
 
+protected:
+    void _handleMouse();
 public:
     IUView()
     {
@@ -49,6 +51,11 @@ public:
     void removeFromParentView();
 
     virtual void draw() override;
+    
+    virtual void onMouseDown(){};
+    virtual void onMouseDrag(){};
+    virtual void onMouseUp(){};
+    
 };
 
 #endif /* IUView_hpp */

@@ -35,6 +35,7 @@ protected:
 
     void _setBounds();
 
+    void _drawAllContents();
 public:
     bool manualLayout = false;
 

@@ -36,6 +36,23 @@ void IUView::updated(int key)
 }
 
 // ---
+void IUView::_handleMouse()
+{
+    if (!ImGui::IsMouseHoveringRect(pos(), size()))
+        return;
+    
+    if (ImGui::IsMouseClicked(0))
+        onMouseDown();
+    
+    if (ImGui::IsMouseReleased(0))
+        onMouseUp();
+    
+    if (ImGui::IsMouseDragging())
+        onMouseDrag();
+    
+}
+
+// ---
 
 void IUView::draw()
 {
@@ -51,9 +68,8 @@ void IUView::draw()
     
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,wp);
     
-    _setBounds();
-    drawLayerContents();
-    _drawSubviews();
+    _drawAllContents();
+    _handleMouse();
     
     ImGui::PopStyleVar();
     
