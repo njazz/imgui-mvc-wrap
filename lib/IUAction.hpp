@@ -11,6 +11,15 @@
 #include <stdio.h>
 #include <functional>
 
+#define IU_ACTION(x)               \
+private:                           \
+    void _##x();                   \
+                                   \
+public:                            \
+    IUAction x = IUAction([this] { \
+        _##x();                    \
+    });
+
 class IUView;
 
 class IUAction {
@@ -21,6 +30,12 @@ public:
 
     // remove later?
     IUAction(){};
+
+    void operator =(IUAction a)
+    {
+        _callback = a._callback;
+    }
+
     void setCallback(std::function<void(void)> fn);
 
     void action();

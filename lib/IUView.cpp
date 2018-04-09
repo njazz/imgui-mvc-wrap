@@ -10,6 +10,7 @@
 void IUView::addAction(int k, IUAction* o)
 {
     o->sender = this;
+    if (std::find(_actions[k].begin(), _actions[k].end(), o) == _actions[k].end())
     _actions[k].push_back(o);
 };
 
@@ -38,18 +39,21 @@ void IUView::updated(int key)
 // ---
 void IUView::_handleMouse()
 {
-    if (!ImGui::IsMouseHoveringRect(pos(), size()))
+    if (!ImGui::IsMouseHoveringRect(pos(), ImVec2(x + width, y + height)))
         return;
-    
+
+    mouseHoverAction();
+
     if (ImGui::IsMouseClicked(0))
-        onMouseDown();
-    
+    {
+        mouseDownAction();
+    }
+
     if (ImGui::IsMouseReleased(0))
-        onMouseUp();
-    
+        mouseUpAction();
+
     if (ImGui::IsMouseDragging())
-        onMouseDrag();
-    
+        mouseDragAction();
 }
 
 // ---
@@ -58,22 +62,30 @@ void IUView::draw()
 {
     if (manualLayout)
         ImGui::SetCursorPos(pos());
-    
+
     ImGui::SetNextWindowContentSize(_getContentSize());
-    
+
     auto wp = ImGui::GetStyle().WindowPadding;
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
-    
+
     ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size());
-    
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,wp);
-    
+
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
+
     _drawAllContents();
     _handleMouse();
-    
+
     ImGui::PopStyleVar();
-    
+
     ImGui::EndChildFrame();
-    
+
     ImGui::PopStyleVar();
 };
+
+// ---
+void IUView::removeFromParentView()
+{
+    if (_parent) {
+        _parent->removeSubview(this);
+    }
+}

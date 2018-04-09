@@ -26,6 +26,7 @@ class IUViewController : public IUView {
 public:
     IUViewController()
     {
+        idString = "VC" + std::to_string((long)this);
         flags = flags | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar;
     }
 

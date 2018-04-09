@@ -18,7 +18,7 @@
 
 class IUWindowController;
 
-// imgui child
+// base class
 class IULayerBase {
 
 public:

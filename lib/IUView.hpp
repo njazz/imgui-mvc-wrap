@@ -30,6 +30,7 @@ class IUView : public IULayer {
 
 protected:
     void _handleMouse();
+
 public:
     IUView()
     {
@@ -51,11 +52,11 @@ public:
     void removeFromParentView();
 
     virtual void draw() override;
-    
-    virtual void onMouseDown(){};
-    virtual void onMouseDrag(){};
-    virtual void onMouseUp(){};
-    
+
+    IUAction mouseDownAction;
+    IUAction mouseUpAction;
+    IUAction mouseDragAction;
+    IUAction mouseHoverAction;
 };
 
 #endif /* IUView_hpp */
