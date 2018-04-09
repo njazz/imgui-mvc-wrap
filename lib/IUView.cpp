@@ -66,19 +66,25 @@ void IUView::draw()
     ImGui::SetNextWindowContentSize(_getContentSize());
 
     auto wp = ImGui::GetStyle().WindowPadding;
+    auto fp = ImGui::GetStyle().FramePadding;
+    
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
-
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
+    
     ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size());
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
 
     _drawAllContents();
     _handleMouse();
 
     ImGui::PopStyleVar();
+    ImGui::PopStyleVar();
 
     ImGui::EndChildFrame();
 
+    ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 };
 

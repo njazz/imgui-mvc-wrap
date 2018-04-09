@@ -32,19 +32,24 @@ void IUViewController::draw()
 
     // draw
     auto wp = ImGui::GetStyle().WindowPadding;
+    auto fp = ImGui::GetStyle().FramePadding;
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
-
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
+    
     ImGui::Begin(title.c_str(), &display, ImVec2(0,0), alpha, flags);
     
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
 
     _drawAllContents();
     _handleMouse();
     
     ImGui::PopStyleVar();
+    ImGui::PopStyleVar();
     
     ImGui::End();
     
+    ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 }
 
