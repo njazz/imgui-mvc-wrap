@@ -19,15 +19,16 @@ void IUViewController::draw()
     drawMenu();
 
     // subs
-    for (auto s: _subControllers)
-        s->draw();
+    for (auto s : _subControllers)
+        if (!s->hidden)
+            s->draw();
     if (_subControllers.size())
         return;
 
     // setup
     ImGui::SetNextWindowPos(pos());
     //if (flags & !ImGuiWindowFlags_NoResize)
-        ImGui::SetNextWindowSize(size(), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(size(), ImGuiCond_Always);
     ImGui::SetNextWindowContentSize(_getContentSize());
 
     // draw
@@ -35,20 +36,20 @@ void IUViewController::draw()
     auto fp = ImGui::GetStyle().FramePadding;
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
-    
-    ImGui::Begin(title.c_str(), &display, ImVec2(0,0), alpha, flags);
-    
+
+    ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
+
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
 
     _drawAllContents();
     _handleMouse();
-    
+
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
-    
+
     ImGui::End();
-    
+
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 }

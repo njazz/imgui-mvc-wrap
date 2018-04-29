@@ -11,7 +11,7 @@ void IUView::addAction(int k, IUAction* o)
 {
     o->sender = this;
     if (std::find(_actions[k].begin(), _actions[k].end(), o) == _actions[k].end())
-    _actions[k].push_back(o);
+        _actions[k].push_back(o);
 };
 
 void IUView::removeAction(int k, IUAction* o)
@@ -39,13 +39,25 @@ void IUView::updated(int key)
 // ---
 void IUView::_handleMouse()
 {
-    if (!ImGui::IsMouseHoveringRect(pos(), ImVec2(x + width, y + height)))
+//        ImGui::BeginTooltip();
+//        ImGui::Text("hover %f %f / mouse %f %f / win %f %f", posInWindow().x, posInWindow().y, ImGui::GetIO().MousePos.x,ImGui::GetIO().MousePos.y ,ImGui::GetWindowPos().x,ImGui::GetWindowPos().y);
+//        ImGui::EndTooltip();
+
+    //ImGui::InvisibleButton(const char *str_id, const ImVec2 &size);
+
+    //if (!ImGui::IsMouseHoveringRect(posInWindow(), ImVec2(posInWindow().x  + width, posInWindow().y  + height)))
+    
+//    if (!_hoveringView)
+//        return;
+
+   
+    if (_hoveringView)
+        mouseHoverAction();
+
+    if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
         return;
-
-    mouseHoverAction();
-
-    if (ImGui::IsMouseClicked(0))
-    {
+    
+    if (ImGui::IsMouseClicked(0)) {
         mouseDownAction();
     }
 
@@ -67,9 +79,10 @@ void IUView::draw()
 
     auto wp = ImGui::GetStyle().WindowPadding;
     auto fp = ImGui::GetStyle().FramePadding;
-    
+
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
+
     
     ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size());
 
@@ -77,12 +90,14 @@ void IUView::draw()
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
 
     _drawAllContents();
-    _handleMouse();
+    
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 
     ImGui::EndChildFrame();
+    _hoveringView = ImGui::IsItemHovered();
+    _handleMouse();
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
@@ -95,3 +110,5 @@ void IUView::removeFromParentView()
         _parent->removeSubview(this);
     }
 }
+
+

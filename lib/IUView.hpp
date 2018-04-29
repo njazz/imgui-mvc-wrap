@@ -27,6 +27,8 @@ class IUMenuBase;
 class IUView : public IULayer {
 
     std::map<int, std::vector<IUAction*> > _actions;
+    
+    bool _hoveringView = false;
 
 protected:
     void _handleMouse();
@@ -57,6 +59,8 @@ public:
     IUAction mouseUpAction;
     IUAction mouseDragAction;
     IUAction mouseHoverAction;
+    
+
 };
 
 #endif /* IUView_hpp */

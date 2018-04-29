@@ -21,9 +21,9 @@ IULayer::IULayer()
 void IULayer::_setBounds()
 {
     // TODO?
-//    const ImRect rect(x,y,width,height);
-//    ImGui::ItemSize(rect, padding);
-//    ImGui::ItemAdd(rect, 0, &rect);
+    //    const ImRect rect(x,y,width,height);
+    //    ImGui::ItemSize(rect, padding);
+    //    ImGui::ItemAdd(rect, 0, &rect);
 }
 
 void IULayer::_drawAllContents()
@@ -41,31 +41,36 @@ void IULayer::draw()
 
     auto wp = ImGui::GetStyle().WindowPadding;
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
-    
+
     ImGui::BeginChild(ImGui::GetID(idString.c_str()), size());
-    
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,wp);
-    
+
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
+
     _drawAllContents();
-    
+
     ImGui::PopStyleVar();
-    
+
     ImGui::EndChild();
-    
+
     ImGui::PopStyleVar();
 };
 
 void IULayer::_drawSubviews()
 {
-    if (hidden) return;
-    
+    if (hidden)
+        return;
+
     for (int i = 0; i < _subviews.size(); i++) {
         _subviews[i]->draw();
     }
+    
 };
 
 void IULayer::addSubview(IULayer* v)
 {
+    if (!v)
+        return;
+
     _subviews.push_back(v);
     v->_parent = this;
     v->setWindowController(_windowController);
@@ -86,6 +91,7 @@ void IULayer::removeAllSubviews()
 
 void IULayer::setWindowController(IUWindowController* w)
 {
+    if (!w) return;
     _windowController = w;
     for (IULayer* v : _subviews) {
         v->setWindowController(w);

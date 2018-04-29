@@ -17,6 +17,8 @@
 #include "IULayerBase.hpp"
 #include "imgui.h"
 
+#include "imgui_internal.h"
+
 class IUWindowController;
 
 // imgui child frame
@@ -36,6 +38,7 @@ protected:
     void _setBounds();
 
     void _drawAllContents();
+
 public:
     bool manualLayout = false;
 
@@ -64,6 +67,22 @@ public:
         return ImVec2(x + offset.x, y + offset.y);
     }
     void updateOffset() { offset = ImGui::GetCursorScreenPos(); }
+
+    //
+    ImVec2 posInWindow()
+    {
+        //        if (_parent) return ImVec2(_parent->x + x, _parent->y+y);
+        //        return pos();
+
+        //auto cur = ImGui::GetCursorPos();
+        //ImGui::SetCursorPos(pos());
+        auto window = ImGui::GetCurrentWindow();
+        
+        //auto posW = window->Pos - window->Scroll + pos(); //ImGui::GetCurrentWindowRead()->DC.CursorPos;//ImGui::GetCursorScreenPos();
+        //ImGui::SetCursorPos(cur);
+        
+        return ImVec2(window->Pos.x - window->Scroll.x + pos().x, window->Pos.y - window->Scroll.y + pos().y);
+    }
 };
 
 #endif /* IULayer_hpp */
