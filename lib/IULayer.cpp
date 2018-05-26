@@ -32,6 +32,7 @@ void IULayer::_drawAllContents()
     drawLayerContents();
     _drawSubviews();
 }
+
 void IULayer::draw()
 {
     if (manualLayout)

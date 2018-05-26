@@ -34,11 +34,8 @@ protected:
     void _handleMouse();
 
 public:
-    IUView()
-    {
-        idString = "V" + std::to_string((long)this);
-    }
-
+    IUView();
+    
     IUMenuBase* contextMenu = 0;
 
     float alpha = 0.75;
@@ -60,7 +57,6 @@ public:
     IUAction mouseDragAction;
     IUAction mouseHoverAction;
     
-
 };
 
 #endif /* IUView_hpp */

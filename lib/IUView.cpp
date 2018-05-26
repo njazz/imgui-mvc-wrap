@@ -7,6 +7,11 @@
 
 #include "IUView.hpp"
 
+IUView::IUView()
+{
+    idString = "V" + std::to_string((long)this);
+}
+
 void IUView::addAction(int k, IUAction* o)
 {
     o->sender = this;
@@ -39,24 +44,23 @@ void IUView::updated(int key)
 // ---
 void IUView::_handleMouse()
 {
-//        ImGui::BeginTooltip();
-//        ImGui::Text("hover %f %f / mouse %f %f / win %f %f", posInWindow().x, posInWindow().y, ImGui::GetIO().MousePos.x,ImGui::GetIO().MousePos.y ,ImGui::GetWindowPos().x,ImGui::GetWindowPos().y);
-//        ImGui::EndTooltip();
+    //        ImGui::BeginTooltip();
+    //        ImGui::Text("hover %f %f / mouse %f %f / win %f %f", posInWindow().x, posInWindow().y, ImGui::GetIO().MousePos.x,ImGui::GetIO().MousePos.y ,ImGui::GetWindowPos().x,ImGui::GetWindowPos().y);
+    //        ImGui::EndTooltip();
 
     //ImGui::InvisibleButton(const char *str_id, const ImVec2 &size);
 
     //if (!ImGui::IsMouseHoveringRect(posInWindow(), ImVec2(posInWindow().x  + width, posInWindow().y  + height)))
-    
-//    if (!_hoveringView)
-//        return;
 
-   
+    //    if (!_hoveringView)
+    //        return;
+
     if (_hoveringView)
         mouseHoverAction();
 
     if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
         return;
-    
+
     if (ImGui::IsMouseClicked(0)) {
         mouseDownAction();
     }
@@ -83,14 +87,12 @@ void IUView::draw()
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
 
-    
     ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size());
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
 
     _drawAllContents();
-    
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
@@ -110,5 +112,3 @@ void IUView::removeFromParentView()
         _parent->removeSubview(this);
     }
 }
-
-
