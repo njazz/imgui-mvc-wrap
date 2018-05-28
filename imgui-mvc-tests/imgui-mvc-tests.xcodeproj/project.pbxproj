@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325A720BC446600FE74EA /* IULayerBase.cpp */; };
 		31C9C8212075054800C68589 /* imgui_mvc_tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8202075054800C68589 /* imgui_mvc_tests.mm */; };
 		31C9C84C2075057F00C68589 /* AppControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8272075057F00C68589 /* AppControllerBase.cpp */; };
 		31C9C84D2075057F00C68589 /* IUImplementation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8292075057F00C68589 /* IUImplementation.cpp */; };
 		31C9C84E2075057F00C68589 /* IULayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C82B2075057F00C68589 /* IULayer.cpp */; };
 		31C9C84F2075057F00C68589 /* IUMainMenuBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C82D2075057F00C68589 /* IUMainMenuBase.cpp */; };
 		31C9C8502075057F00C68589 /* IUMenuBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C82F2075057F00C68589 /* IUMenuBase.cpp */; };
-		31C9C8512075057F00C68589 /* IUObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8312075057F00C68589 /* IUObserver.cpp */; };
+		31C9C8512075057F00C68589 /* IUAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8312075057F00C68589 /* IUAction.cpp */; };
 		31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8332075057F00C68589 /* IUShortcut.cpp */; };
 		31C9C8532075057F00C68589 /* IUView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8352075057F00C68589 /* IUView.cpp */; };
 		31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8372075057F00C68589 /* IUViewController.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		316325A620BC446500FE74EA /* IULayerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IULayerBase.hpp; sourceTree = "<group>"; };
+		316325A720BC446600FE74EA /* IULayerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IULayerBase.cpp; sourceTree = "<group>"; };
 		31C9C81D2075054800C68589 /* imgui-mvc-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "imgui-mvc-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C9C8202075054800C68589 /* imgui_mvc_tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imgui_mvc_tests.mm; sourceTree = "<group>"; };
 		31C9C8222075054800C68589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,8 +43,8 @@
 		31C9C82E2075057F00C68589 /* IUMainMenuBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUMainMenuBase.hpp; sourceTree = "<group>"; };
 		31C9C82F2075057F00C68589 /* IUMenuBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUMenuBase.cpp; sourceTree = "<group>"; };
 		31C9C8302075057F00C68589 /* IUMenuBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUMenuBase.hpp; sourceTree = "<group>"; };
-		31C9C8312075057F00C68589 /* IUObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUObserver.cpp; sourceTree = "<group>"; };
-		31C9C8322075057F00C68589 /* IUObserver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUObserver.hpp; sourceTree = "<group>"; };
+		31C9C8312075057F00C68589 /* IUAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUAction.cpp; sourceTree = "<group>"; };
+		31C9C8322075057F00C68589 /* IUAction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUAction.hpp; sourceTree = "<group>"; };
 		31C9C8332075057F00C68589 /* IUShortcut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUShortcut.cpp; sourceTree = "<group>"; };
 		31C9C8342075057F00C68589 /* IUShortcut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUShortcut.hpp; sourceTree = "<group>"; };
 		31C9C8352075057F00C68589 /* IUView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUView.cpp; sourceTree = "<group>"; };
@@ -120,14 +123,16 @@
 				31C9C8282075057F00C68589 /* AppControllerBase.hpp */,
 				31C9C8292075057F00C68589 /* IUImplementation.cpp */,
 				31C9C82A2075057F00C68589 /* IUImplementation.hpp */,
+				316325A720BC446600FE74EA /* IULayerBase.cpp */,
+				316325A620BC446500FE74EA /* IULayerBase.hpp */,
 				31C9C82B2075057F00C68589 /* IULayer.cpp */,
 				31C9C82C2075057F00C68589 /* IULayer.hpp */,
 				31C9C82D2075057F00C68589 /* IUMainMenuBase.cpp */,
 				31C9C82E2075057F00C68589 /* IUMainMenuBase.hpp */,
 				31C9C82F2075057F00C68589 /* IUMenuBase.cpp */,
 				31C9C8302075057F00C68589 /* IUMenuBase.hpp */,
-				31C9C8312075057F00C68589 /* IUObserver.cpp */,
-				31C9C8322075057F00C68589 /* IUObserver.hpp */,
+				31C9C8312075057F00C68589 /* IUAction.cpp */,
+				31C9C8322075057F00C68589 /* IUAction.hpp */,
 				31C9C8332075057F00C68589 /* IUShortcut.cpp */,
 				31C9C8342075057F00C68589 /* IUShortcut.hpp */,
 				31C9C8352075057F00C68589 /* IUView.cpp */,
@@ -252,7 +257,8 @@
 				31C9C8592075057F00C68589 /* imgui_draw.cpp in Sources */,
 				31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */,
 				31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */,
-				31C9C8512075057F00C68589 /* IUObserver.cpp in Sources */,
+				316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */,
+				31C9C8512075057F00C68589 /* IUAction.cpp in Sources */,
 				31C9C84D2075057F00C68589 /* IUImplementation.cpp in Sources */,
 				31C9C84F2075057F00C68589 /* IUMainMenuBase.cpp in Sources */,
 				31C9C8502075057F00C68589 /* IUMenuBase.cpp in Sources */,

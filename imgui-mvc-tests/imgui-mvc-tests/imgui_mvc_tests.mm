@@ -9,7 +9,7 @@
 
 #include "IULayer.hpp"
 #include "IUWindowController.hpp"
-#include "IUObserver.hpp"
+#include "IUAction.hpp"
 #include "IUView.hpp"
 #include "IUViewController.hpp"
 #include "IUImplementation.hpp"
@@ -75,7 +75,7 @@ public:
 - (void)testIUObserver
 {
     int observerCalled = 0;
-    IUObserver b = IUObserver([&observerCalled]() {
+    IUAction b = IUAction([&observerCalled]() {
         observerCalled++;
     });
 
@@ -97,16 +97,16 @@ public:
     int v1o2 = 2;
 
     int observerValue;
-    IUObserver o1 = IUObserver([&observerValue]() {
+    IUAction o1 = IUAction([&observerValue]() {
         observerValue = 10;
     });
-    IUObserver o2 = IUObserver([&observerValue]() {
+    IUAction o2 = IUAction([&observerValue]() {
         observerValue = 20;
     });
 
     // add observer
-    v1.addObserverFor(v1o1, &o1);
-    v1.addObserverFor(v1o2, &o2);
+    v1.addAction(v1o1, &o1);
+    v1.addAction(v1o2, &o2);
 
     v1.updated(v1o1);
     XCTAssert(observerValue == 10);
@@ -115,7 +115,7 @@ public:
 
     // remove observer
     observerValue = 0;
-    v1.removeObserverFor(v1o2, &o2);
+    v1.removeAction(v1o2, &o2);
     v1.updated(v1o2);
     XCTAssert(observerValue == 0);
 }

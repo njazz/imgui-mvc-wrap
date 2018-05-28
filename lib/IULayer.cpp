@@ -43,7 +43,8 @@ void IULayer::draw()
     auto wp = ImGui::GetStyle().WindowPadding;
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
 
-    ImGui::BeginChild(ImGui::GetID(idString.c_str()), size());
+    if (ImGui::GetCurrentContext()->CurrentWindow)
+        ImGui::BeginChild(ImGui::GetID(idString.c_str()), size());
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
 
@@ -51,7 +52,8 @@ void IULayer::draw()
 
     ImGui::PopStyleVar();
 
-    ImGui::EndChild();
+    if (ImGui::GetCurrentContext()->CurrentWindow)
+        ImGui::EndChild();
 
     ImGui::PopStyleVar();
 };
@@ -64,7 +66,6 @@ void IULayer::_drawSubviews()
     for (int i = 0; i < _subviews.size(); i++) {
         _subviews[i]->draw();
     }
-    
 };
 
 void IULayer::addSubview(IULayer* v)
@@ -92,7 +93,8 @@ void IULayer::removeAllSubviews()
 
 void IULayer::setWindowController(IUWindowController* w)
 {
-    if (!w) return;
+    if (!w)
+        return;
     _windowController = w;
     for (IULayer* v : _subviews) {
         v->setWindowController(w);
