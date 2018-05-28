@@ -8,9 +8,27 @@
 
 #include "IULayerBase.hpp"
 
+#include "imgui_internal.h"
+
 IULayerBase::IULayerBase()
 {
     idString = "SL" + std::to_string((long)this);
+}
+
+ImVec2 IULayerBase::size()
+{
+    return ImVec2(width * scale(), height * scale());
+};
+
+ImVec2 IULayerBase::pos()
+{
+    return ImVec2(x * scale(), y * scale());
+};
+
+inline float IULayerBase::scale()
+{
+    //return 1;
+    return (zoomable) ? ImGui::GetCurrentWindow()->FontWindowScale : 1;
 }
 
 //void IUSubLayer::draw()

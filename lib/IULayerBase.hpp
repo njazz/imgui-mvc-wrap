@@ -16,6 +16,7 @@
 
 #include "imgui.h"
 
+
 class IUWindowController;
 
 // base class
@@ -35,8 +36,12 @@ public:
 
     bool hidden = false;
 
-    ImVec2 size() { return ImVec2(width, height); };
-    ImVec2 pos() { return ImVec2(x, y); };
+    ImVec2 size();
+    ImVec2 pos();
+    
+    inline float scale();
+    
+    bool zoomable = true;
 };
 
 #endif /* IUSubLayer_hpp */

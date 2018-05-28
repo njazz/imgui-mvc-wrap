@@ -18,6 +18,11 @@ IULayer::IULayer()
     idString = "L" + std::to_string((long)this);
 }
 
+ImVec2 IULayer::_getContentSize()
+{
+    return ImVec2(contentSize.x < width ? width : contentSize.x, contentSize.y < height ? height : contentSize.y);
+}
+
 void IULayer::_setBounds()
 {
     // TODO?
@@ -35,6 +40,7 @@ void IULayer::_drawAllContents()
 
 void IULayer::draw()
 {
+
     if (manualLayout)
         ImGui::SetCursorPos(pos());
 

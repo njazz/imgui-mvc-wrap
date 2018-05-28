@@ -25,15 +25,13 @@ class IUWindowController;
 class IULayer : public IULayerBase {
 protected:
     std::vector<IULayer*> _subviews;
+
     void _drawSubviews();
 
     IULayer* _parent = 0;
     IUWindowController* _windowController = 0;
 
-    ImVec2 _getContentSize()
-    {
-        return ImVec2(contentSize.x < width ? width : contentSize.x, contentSize.y < height ? height : contentSize.y);
-    }
+    ImVec2 _getContentSize();
 
     void _setBounds();
 
@@ -68,19 +66,9 @@ public:
     }
     void updateOffset() { offset = ImGui::GetCursorScreenPos(); }
 
-    //
     ImVec2 posInWindow()
     {
-        //        if (_parent) return ImVec2(_parent->x + x, _parent->y+y);
-        //        return pos();
-
-        //auto cur = ImGui::GetCursorPos();
-        //ImGui::SetCursorPos(pos());
         auto window = ImGui::GetCurrentWindow();
-        
-        //auto posW = window->Pos - window->Scroll + pos(); //ImGui::GetCurrentWindowRead()->DC.CursorPos;//ImGui::GetCursorScreenPos();
-        //ImGui::SetCursorPos(cur);
-        
         return ImVec2(window->Pos.x - window->Scroll.x + pos().x, window->Pos.y - window->Scroll.y + pos().y);
     }
 };
