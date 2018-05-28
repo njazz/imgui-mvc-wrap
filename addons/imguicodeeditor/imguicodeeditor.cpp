@@ -19,6 +19,8 @@
 */
 #include "imguicodeeditor.h"
 
+#include "imgui_internal.h"
+
 #define IMGUICODEEDITOR_USE_UTF8HELPER_H    // speed opt ?
 #ifdef IMGUICODEEDITOR_USE_UTF8HELPER_H
 #   include "utf8helper.h"         // not sure if it's necessary to count UTF8 chars

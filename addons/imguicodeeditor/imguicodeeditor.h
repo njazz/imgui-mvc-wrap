@@ -20,9 +20,9 @@
 #ifndef IMGUICODEEDITOR_H_
 #define IMGUICODEEDITOR_H_
 
-#ifndef IMGUI_API
-#include <imgui.h>
-#endif //IMGUI_API
+//#ifndef IMGUI_API
+#include "imgui.h"
+//#endif //IMGUI_API
 
 #ifdef NO_IMGUISTRING
 #error imguistring is required for imguicodeeditor to work

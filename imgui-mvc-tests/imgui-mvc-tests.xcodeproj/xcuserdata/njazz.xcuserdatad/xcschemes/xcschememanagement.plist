@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>imgui-mvc-demo-app.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>imgui-mvc-tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

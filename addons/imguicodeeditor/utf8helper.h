@@ -16,6 +16,9 @@
 
 //#include <sys/types.h> //uint8_t,uint32_t
 
+#include <cstdio>
+#include <math.h>
+
 class UTF8Helper {
 public:
 //    typedef unsigned char uint8_t;
