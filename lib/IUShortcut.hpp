@@ -51,10 +51,14 @@ public:
 
     static IUKey Slash() { return IUKey("/", { GLFW_KEY_SLASH }); }
 
-    static IUKey Dot() { return IUKey(".", { GLFW_KEY_PERIOD }); }
+    static IUKey Period() { return IUKey(".", { GLFW_KEY_PERIOD }); }
+    static IUKey Comma() { return IUKey(",", { GLFW_KEY_COMMA }); }
 
     static IUKey Delete() {return IUKey("Del",{GLFW_KEY_DELETE});}
     static IUKey Backspace() {return IUKey("Del",{GLFW_KEY_BACKSPACE});}
+
+    static IUKey Equal() {return IUKey("=",{GLFW_KEY_EQUAL});}
+    static IUKey Minus() {return IUKey("-",{GLFW_KEY_MINUS});}
 
     KEY_C(A);
     KEY_C(B);
@@ -82,6 +86,17 @@ public:
     KEY_C(X);
     KEY_C(Y);
     KEY_C(Z);
+
+    KEY_C(0);
+    KEY_C(1);
+    KEY_C(2);
+    KEY_C(3);
+    KEY_C(4);
+    KEY_C(5);
+    KEY_C(6);
+    KEY_C(7);
+    KEY_C(8);
+    KEY_C(9);
 };
 
 //IUKey operator+(IUKey a, IUKey b);
