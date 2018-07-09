@@ -65,6 +65,8 @@ class IUImplementation {
     void _installCallbacks(GLFWwindow* window);
 
 public:
+    IUImplementation(){};
+
     GLFWwindow* glWindow = NULL;
     ImGuiContext* context = NULL;
     

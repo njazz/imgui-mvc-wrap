@@ -6,10 +6,12 @@ void IUMainMenuBase::draw()
     ImGui::BeginMainMenuBar();
 
     _drawComponents();
+    _shortcutComponents();
 
     ImGui::EndMainMenuBar();
     
-    _shortcutComponents();
+//    _updateComponents();
+
 }
 
 void IUMainMenuBase::addMenu(IUMenuBase* m, std::string name)

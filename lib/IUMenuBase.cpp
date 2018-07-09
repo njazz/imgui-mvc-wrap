@@ -14,8 +14,8 @@ void IUMenuBase::_itemAction(int action)
     if (action) {
         if (_actions[action]) {
             _actions[action]->action();
-//            if (_windowController)
-//                _windowController->restoreContext();
+            if (_windowController)
+                _windowController->restoreContext();
         }
     }
 }
@@ -27,8 +27,8 @@ bool IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool ch
     if (ImGui::MenuItem(name.c_str(), shortcut.str().c_str(), checked, enabled)) {
 
         _itemAction(action);
-        if (_windowController)
-            _windowController->restoreContext();
+//        if (_windowController)
+//            _windowController->restoreContext();
         return true;
     }
     return false;

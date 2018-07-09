@@ -38,7 +38,7 @@ bool IUShortcut::keyPressed()
     //printf("key count %i\n", (int)_keys.size());
     
     for (auto k : _keys) {
-        printf("key %s pressed %i\n", k.str().c_str(), k.keyPressed());
+        //printf("key %s pressed %i\n", k.str().c_str(), k.keyPressed());
         ret = ret && k.keyPressed();
     }
     

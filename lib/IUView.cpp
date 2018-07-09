@@ -64,8 +64,8 @@ void IUView::_handleMouse()
 
     if (_hoveringView)
         mouseHoverAction();
-    else
-        return;
+//    else
+//        return;
 
     //    if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
     //        return;
@@ -116,6 +116,7 @@ void IUView::draw()
     ImGui::PopStyleVar();
     
     _shortcutComponents();
+//    _updateComponents();
 };
 
 // ---

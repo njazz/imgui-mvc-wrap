@@ -53,7 +53,8 @@ public:
 
     static IUKey Dot() { return IUKey(".", { GLFW_KEY_PERIOD }); }
 
-    static IUKey Delete() {return IUKey("Del",{GLFW_KEY_BACKSPACE});}
+    static IUKey Delete() {return IUKey("Del",{GLFW_KEY_DELETE});}
+    static IUKey Backspace() {return IUKey("Del",{GLFW_KEY_BACKSPACE});}
 
     KEY_C(A);
     KEY_C(B);
@@ -92,7 +93,7 @@ public:
     // imgui-ready
     bool keyPressed();
 
-    IUShortcut(IUKey k1);
+    explicit IUShortcut(IUKey k1);
 
     IUShortcut(IUKey k1, IUKey k2);
 

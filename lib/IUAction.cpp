@@ -7,9 +7,9 @@
 
 #include "IUAction.hpp"
 
-IUAction::IUAction(std::function<void(void)> fn)
+IUAction::IUAction(std::function<void(void)> fn) : _callback(fn)
 {
-    _callback = fn;
+//    _callback = fn;
 }
 
 void IUAction::action()
