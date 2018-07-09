@@ -3,14 +3,17 @@
 
 void IUMainMenuBase::draw()
 {
+//    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
+//    ImGui::SetWindowFontScale(1);
+
     ImGui::BeginMainMenuBar();
 
     _drawComponents();
     _shortcutComponents();
 
     ImGui::EndMainMenuBar();
-    
-//    _updateComponents();
+
+//    ImGui::SetWindowFontScale(fontScale);
 
 }
 

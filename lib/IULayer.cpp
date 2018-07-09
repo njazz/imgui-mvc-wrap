@@ -42,6 +42,8 @@ void IULayer::_drawAllContents()
 
 void IULayer::draw()
 {
+    // ImGui::SetWindowFontScale(scale());
+
     if (manualLayout)
         ImGui::SetCursorPos(pos());
 

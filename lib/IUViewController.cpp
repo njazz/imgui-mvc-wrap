@@ -16,6 +16,8 @@ void IUViewController::setWindowController(IUWindowController* w)
 
 void IUViewController::draw()
 {
+//    ImGui::SetWindowFontScale(scale());
+
     if (dockSpace)
         ImGui::BeginDockspace();
     
@@ -47,8 +49,6 @@ void IUViewController::draw()
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
-    
-    
 
     _drawAllContents();
     _handleMouse();

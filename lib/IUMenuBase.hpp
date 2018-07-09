@@ -50,4 +50,20 @@ public:
     
 };
 
+class IUPopupMenu : public IUMenuBase
+{
+public:
+
+    virtual void draw() override
+    {
+        shortcuts();
+
+        if (ImGui::BeginPopupContextItem(name.c_str())) {
+            _drawComponents();
+            drawContents();
+            ImGui::EndPopup();
+        }
+    };
+};
+
 #endif
