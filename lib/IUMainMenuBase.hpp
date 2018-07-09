@@ -12,7 +12,7 @@ class IUMainMenuBase : public IUBaseT<IUMenuBase> {
 
 public:
     virtual void draw() override;
-    virtual void shortcuts() override{};
+    //virtual void shortcuts() override{};
 
     void addMenu(IUMenuBase* m, std::string name = "");
 };

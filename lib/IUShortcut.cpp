@@ -19,8 +19,12 @@ IUShortcut operator+(IUShortcut a, IUKey b)
 bool IUKey::keyPressed()
 {
     for (auto k : _keyCodes) {
-        if (ImGui::IsKeyDown(k))
+        if //(ImGui::GetIO().KeysDown[k])//
+            (ImGui::IsKeyDown(k))
+        {
+            //printf("key %s / %i\n",str().c_str(), k);
             return true;
+        }
     }
     return false;
 }
@@ -31,19 +35,27 @@ bool IUShortcut::keyPressed()
 {
     bool ret = true;
 
+    //printf("key count %i\n", (int)_keys.size());
+    
     for (auto k : _keys) {
+        printf("key %s pressed %i\n", k.str().c_str(), k.keyPressed());
         ret = ret && k.keyPressed();
     }
+    
+    if (ret) printf("ret\n");
 
     if (ret)
     //        for (int i = 0; i < 512; i++)
     //            ImGui::GetIO().KeysDown[i] = false;
+        
     {
         for (auto k : _keys)
             for (auto kc : k.keyCodes())
                 ImGui::GetIO().KeysDown[kc] = false;
     }
 
+    //ImGui::GetIO().ClearInputCharacters();
+    
     return ret;
 }
 

@@ -44,8 +44,13 @@ void IUView::updated(int key)
 // ---
 void IUView::_handleMouse()
 {
-    if (!ImGui::GetCurrentContext()) return;
-    
+    if (!ImGui::GetCurrentContext())
+        return;
+
+    if (!mouseEnabled)
+        return;
+
+    // DEBUG:
     //        ImGui::BeginTooltip();
     //        ImGui::Text("hover %f %f / mouse %f %f / win %f %f", posInWindow().x, posInWindow().y, ImGui::GetIO().MousePos.x,ImGui::GetIO().MousePos.y ,ImGui::GetWindowPos().x,ImGui::GetWindowPos().y);
     //        ImGui::EndTooltip();
@@ -59,12 +64,11 @@ void IUView::_handleMouse()
 
     if (_hoveringView)
         mouseHoverAction();
-
-    // quick fix
-    // if (!ImGui::GetCurrentContext()) return;
-    
-    if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
+    else
         return;
+
+    //    if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
+    //        return;
 
     if (ImGui::IsMouseClicked(0)) {
         mouseDownAction();
@@ -82,7 +86,7 @@ void IUView::_handleMouse()
 void IUView::draw()
 {
     //if (!ImGui::GetCurrentContext()) return;
-    
+
     if (manualLayout)
         ImGui::SetCursorPos(pos());
 
@@ -110,6 +114,8 @@ void IUView::draw()
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
+    
+    _shortcutComponents();
 };
 
 // ---

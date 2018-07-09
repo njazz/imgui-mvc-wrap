@@ -24,10 +24,6 @@ class IUWindowController;
 // imgui child frame
 class IULayer : public IULayerBase {
 protected:
-//    std::vector<IULayer*> _sublayers;
-//    void _drawSublayers();
-
-    IUWindowController* _windowController = 0;
 
     ImVec2 _getContentSize();
 
@@ -47,9 +43,6 @@ public:
     void addSubview(IULayer* v);
     void removeSubview(IULayer* v);
     void removeAllSubviews();
-
-//    virtual void setWindowController(IUWindowController* w);
-//    IUWindowController* windowController();
 
     //
     ImVec2 offset = ImVec2(0, 0);

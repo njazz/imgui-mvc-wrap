@@ -16,7 +16,7 @@ private:                           \
     void _##x();                   \
                                    \
 public:                            \
-    IUAction x = IUAction([this] { \
+    IUAction x = IUAction([&] { \
         _##x();                    \
     });
 

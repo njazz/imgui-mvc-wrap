@@ -45,6 +45,9 @@ public:
         _actions = src->_actions;
         _shortcuts = src->_shortcuts;
     }
+    
+//    virtual void shortcuts() override;
+    
 };
 
 #endif

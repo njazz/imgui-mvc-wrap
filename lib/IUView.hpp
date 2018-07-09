@@ -51,6 +51,8 @@ public:
     void removeFromParentView();
 
     virtual void draw() override;
+    
+    bool mouseEnabled = true;
 
     IUAction mouseDownAction;
     IUAction mouseUpAction;

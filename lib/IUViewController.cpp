@@ -66,6 +66,8 @@ void IUViewController::draw()
     
     if (dockSpace)
         ImGui::EndDockspace();
+    
+//    _shortcutComponents();
 }
 
 void IUViewController::drawMenu()
