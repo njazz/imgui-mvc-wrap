@@ -15,13 +15,18 @@
 #include <vector>
 
 #include "imgui.h"
+#include "imgui_internal.h"
 
+#include "IUBase.hpp"
 
 class IUWindowController;
 
-// base class
-class IULayerBase {
-
+// base class for layers etc
+class IULayerBase : public IUBaseT<IULayerBase> {
+    friend class IULayer;
+protected:
+    IULayerBase* _parent = 0;
+    
 public:
     IULayerBase();
 
@@ -38,9 +43,9 @@ public:
 
     ImVec2 size();
     ImVec2 pos();
-    
-    inline float scale();
-    
+
+    inline float scale() { return (zoomable) ? ImGui::GetCurrentWindow()->FontWindowScale : 1; }
+
     bool zoomable = true;
 };
 

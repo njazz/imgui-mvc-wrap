@@ -5,16 +5,16 @@
 #ifndef UIMainMenuBase_hpp
 #define UIMainMenuBase_hpp
 
-class IUMainMenuBase {
-    std::vector<IUMenuBase*> _menus;
+#include "IUBase.hpp"
 
-    IUWindowController* _windowController = 0;
+class IUMainMenuBase : public IUBaseT<IUMenuBase> {
+//    std::vector<IUMenuBase*> _menus;
 
 public:
-    virtual void draw();
+    virtual void draw() override;
+    virtual void shortcuts() override{};
 
     void addMenu(IUMenuBase* m, std::string name = "");
-    void setWindowController(IUWindowController* w);
 };
 
 #endif

@@ -44,6 +44,8 @@ void IUView::updated(int key)
 // ---
 void IUView::_handleMouse()
 {
+    if (!ImGui::GetCurrentContext()) return;
+    
     //        ImGui::BeginTooltip();
     //        ImGui::Text("hover %f %f / mouse %f %f / win %f %f", posInWindow().x, posInWindow().y, ImGui::GetIO().MousePos.x,ImGui::GetIO().MousePos.y ,ImGui::GetWindowPos().x,ImGui::GetWindowPos().y);
     //        ImGui::EndTooltip();
@@ -58,6 +60,9 @@ void IUView::_handleMouse()
     if (_hoveringView)
         mouseHoverAction();
 
+    // quick fix
+    // if (!ImGui::GetCurrentContext()) return;
+    
     if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
         return;
 
@@ -76,6 +81,8 @@ void IUView::_handleMouse()
 
 void IUView::draw()
 {
+    //if (!ImGui::GetCurrentContext()) return;
+    
     if (manualLayout)
         ImGui::SetCursorPos(pos());
 
@@ -109,6 +116,6 @@ void IUView::draw()
 void IUView::removeFromParentView()
 {
     if (_parent) {
-        _parent->removeSubview(this);
+        _parent->removeComponent(this);
     }
 }

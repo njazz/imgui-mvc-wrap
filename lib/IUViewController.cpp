@@ -16,6 +16,9 @@ void IUViewController::setWindowController(IUWindowController* w)
 
 void IUViewController::draw()
 {
+    if (dockSpace)
+        ImGui::BeginDockspace();
+    
     drawMenu();
 
     // subs
@@ -37,10 +40,15 @@ void IUViewController::draw()
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
 
-    ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
+    if (dockable)
+        ImGui::BeginDock(title.c_str(), &display, flags);
+    else
+        ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
+    
+    
 
     _drawAllContents();
     _handleMouse();
@@ -48,10 +56,16 @@ void IUViewController::draw()
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 
+    if (dockable)
+        ImGui::EndDock();
+    else
     ImGui::End();
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
+    
+    if (dockSpace)
+        ImGui::EndDockspace();
 }
 
 void IUViewController::drawMenu()

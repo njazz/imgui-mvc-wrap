@@ -16,6 +16,9 @@ class IUMainMenuBase;
 
 #include "IUView.hpp"
 
+// new
+#include "imguidock.h"
+
 //#include "IUMainMenuBase.hpp"
 
 // imgui "window"
@@ -42,6 +45,7 @@ public:
     // test:
     void addSubcontroller(IUViewController* v)
     {
+        if (!v) return;
         v->_parent = this;
         _subControllers.push_back(v);
     }
@@ -54,5 +58,8 @@ public:
     virtual void drawMenu();
 
     IUMainMenuBase* menu = 0;
+    
+    bool dockable = false;
+    bool dockSpace = false;
 };
 #endif /* IUViewController_hpp */

@@ -35,6 +35,10 @@
 		3163261F20BC4C6900FE74EA /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 3163260A20BC4C6900FE74EA /* readme.md */; };
 		3163262420BC54EA00FE74EA /* ZoomableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3163262220BC54EA00FE74EA /* ZoomableView.cpp */; };
 		3163262720BC54F700FE74EA /* TestObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3163262520BC54F700FE74EA /* TestObject.cpp */; };
+		31C66E8220F295FC00C90AB1 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 31C66E7B20F295FC00C90AB1 /* ioapi.c */; };
+		31C66E8320F295FC00C90AB1 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 31C66E7D20F295FC00C90AB1 /* unzip.c */; };
+		31C66E8420F295FC00C90AB1 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 31C66E7F20F295FC00C90AB1 /* zip.c */; };
+		31C66E8B20F299BD00C90AB1 /* imguidock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325DE20BC4C6900FE74EA /* imguidock.cpp */; };
 		31C9C8212075054800C68589 /* imgui_mvc_tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8202075054800C68589 /* imgui_mvc_tests.mm */; };
 		31C9C84C2075057F00C68589 /* AppControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8272075057F00C68589 /* AppControllerBase.cpp */; };
 		31C9C84D2075057F00C68589 /* IUImplementation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C9C8292075057F00C68589 /* IUImplementation.cpp */; };
@@ -113,6 +117,18 @@
 		3163262320BC54EA00FE74EA /* ZoomableView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ZoomableView.hpp; sourceTree = "<group>"; };
 		3163262520BC54F700FE74EA /* TestObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestObject.cpp; sourceTree = "<group>"; };
 		3163262620BC54F700FE74EA /* TestObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestObject.hpp; sourceTree = "<group>"; };
+		31C66E7620F295FC00C90AB1 /* dirent_portable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dirent_portable.h; sourceTree = "<group>"; };
+		31C66E7720F295FC00C90AB1 /* imguifilesystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imguifilesystem.cpp; sourceTree = "<group>"; };
+		31C66E7820F295FC00C90AB1 /* imguifilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imguifilesystem.h; sourceTree = "<group>"; };
+		31C66E7A20F295FC00C90AB1 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		31C66E7B20F295FC00C90AB1 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		31C66E7C20F295FC00C90AB1 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		31C66E7D20F295FC00C90AB1 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		31C66E7E20F295FC00C90AB1 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		31C66E7F20F295FC00C90AB1 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		31C66E8020F295FC00C90AB1 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		31C66E8720F2988400C90AB1 /* imguistring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imguistring.cpp; sourceTree = "<group>"; };
+		31C66E8820F2988400C90AB1 /* imguistring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imguistring.h; sourceTree = "<group>"; };
 		31C9C81D2075054800C68589 /* imgui-mvc-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "imgui-mvc-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C9C8202075054800C68589 /* imgui_mvc_tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imgui_mvc_tests.mm; sourceTree = "<group>"; };
 		31C9C8222075054800C68589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -205,6 +221,8 @@
 		316325D820BC4C6900FE74EA /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				31C66E8620F2988400C90AB1 /* imguistring */,
+				31C66E7520F295FC00C90AB1 /* imguifilesystem */,
 				316325D920BC4C6900FE74EA /* imguicodeeditor */,
 				316325DD20BC4C6900FE74EA /* imguidock */,
 				316325E020BC4C6900FE74EA /* imguinodegrapheditor */,
@@ -307,6 +325,40 @@
 				316325F920BC4C6900FE74EA /* tiny_jpeg.h */,
 			);
 			path = imguiimageeditor_plugins;
+			sourceTree = "<group>";
+		};
+		31C66E7520F295FC00C90AB1 /* imguifilesystem */ = {
+			isa = PBXGroup;
+			children = (
+				31C66E7620F295FC00C90AB1 /* dirent_portable.h */,
+				31C66E7720F295FC00C90AB1 /* imguifilesystem.cpp */,
+				31C66E7820F295FC00C90AB1 /* imguifilesystem.h */,
+				31C66E7920F295FC00C90AB1 /* minizip */,
+			);
+			path = imguifilesystem;
+			sourceTree = "<group>";
+		};
+		31C66E7920F295FC00C90AB1 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				31C66E7A20F295FC00C90AB1 /* crypt.h */,
+				31C66E7B20F295FC00C90AB1 /* ioapi.c */,
+				31C66E7C20F295FC00C90AB1 /* ioapi.h */,
+				31C66E7D20F295FC00C90AB1 /* unzip.c */,
+				31C66E7E20F295FC00C90AB1 /* unzip.h */,
+				31C66E7F20F295FC00C90AB1 /* zip.c */,
+				31C66E8020F295FC00C90AB1 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		31C66E8620F2988400C90AB1 /* imguistring */ = {
+			isa = PBXGroup;
+			children = (
+				31C66E8720F2988400C90AB1 /* imguistring.cpp */,
+				31C66E8820F2988400C90AB1 /* imguistring.h */,
+			);
+			path = imguistring;
 			sourceTree = "<group>";
 		};
 		31C9C8122075053000C68589 = {
@@ -520,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				316325CE20BC4A9400FE74EA /* IUWindowController.cpp in Sources */,
+				31C66E8B20F299BD00C90AB1 /* imguidock.cpp in Sources */,
 				3163262420BC54EA00FE74EA /* ZoomableView.cpp in Sources */,
 				316325C820BC4A9400FE74EA /* IUMainMenuBase.cpp in Sources */,
 				316325C320BC4A3300FE74EA /* main.cpp in Sources */,
@@ -554,10 +607,13 @@
 				31C9C8592075057F00C68589 /* imgui_draw.cpp in Sources */,
 				31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */,
 				31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */,
+				31C66E8220F295FC00C90AB1 /* ioapi.c in Sources */,
 				316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */,
 				31C9C8512075057F00C68589 /* IUAction.cpp in Sources */,
 				31C9C84D2075057F00C68589 /* IUImplementation.cpp in Sources */,
 				31C9C84F2075057F00C68589 /* IUMainMenuBase.cpp in Sources */,
+				31C66E8320F295FC00C90AB1 /* unzip.c in Sources */,
+				31C66E8420F295FC00C90AB1 /* zip.c in Sources */,
 				31C9C8502075057F00C68589 /* IUMenuBase.cpp in Sources */,
 				31C9C8552075057F00C68589 /* IUWindowController.cpp in Sources */,
 				31C9C8532075057F00C68589 /* IUView.cpp in Sources */,
@@ -609,6 +665,7 @@
 				DEVELOPMENT_TEAM = 85478UQJJR;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = ../imgui/;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -623,6 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../imgui/;
 				INFOPLIST_FILE = "imgui-mvc-demo-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glfw/3.2.1/lib;
@@ -674,6 +732,7 @@
 				DEVELOPMENT_TEAM = 85478UQJJR;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = ../imgui/;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -682,6 +741,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../imgui/;
 				INFOPLIST_FILE = "imgui-mvc-demo-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glfw/3.2.1/lib;
@@ -696,12 +756,14 @@
 		31C9C8172075053000C68589 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = ../imgui/;
 			};
 			name = Debug;
 		};
 		31C9C8182075053000C68589 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = ../imgui/;
 			};
 			name = Release;
 		};

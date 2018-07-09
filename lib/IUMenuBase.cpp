@@ -9,6 +9,19 @@ void IUMenuBase::shortcut(int action, IUShortcut shortcut)
         _itemAction(action);
 }
 
+void IUMenuBase::_itemAction(int action)
+{
+    if (action) {
+        if (_actions[action]) {
+            _actions[action]->action();
+            if (_windowController)
+                _windowController->restoreContext();
+        }
+    }
+}
+
+// ---
+
 bool IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool checked, bool enabled)
 {
     if (ImGui::MenuItem(name.c_str(), shortcut.str().c_str(), checked, enabled)) {
@@ -19,27 +32,19 @@ bool IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool ch
     return false;
 }
 
-void IUMenuBase::_itemAction(int action)
-{
-    if (action) {
-        if (_actions[action]) {
-            _actions[action]->action();
-            if (windowController)
-                windowController->restoreContext();
-        }
-    }
-}
 
- void IUMenuBase::shortcuts(){};
- void IUMenuBase::draw(){};
 
-void IUMenuBase::menu()
+//void IUMenuBase::shortcuts(){};
+// void IUMenuBase::draw(){};
+
+void IUMenuBase::draw()
 {
 
     shortcuts();
 
     if (ImGui::BeginMenu(name.c_str())) {
-        draw();
+        _drawComponents();
+        drawContents();
         ImGui::EndMenu();
     }
 }

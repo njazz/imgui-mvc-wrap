@@ -785,7 +785,7 @@ struct DockContext
 	    ImU32 button_hovered = GetColorU32(ImGuiCol_ButtonHovered);
 	    ImU32 text_color = GetColorU32(ImGuiCol_Text);
             float line_height = GetTextLineHeightWithSpacing();
-            float tab_base;
+            float tab_base = 0.;
 
             drawTabbarListButton(dock);
 

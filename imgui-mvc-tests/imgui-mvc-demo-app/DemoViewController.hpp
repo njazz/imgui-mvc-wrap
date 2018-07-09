@@ -16,21 +16,35 @@
 
 #include "ZoomableView.hpp"
 
+#include "imguidock.h"
+
 class DemoViewController : public IUViewController {
-    ZoomableView v;
+    //    ZoomableView v;
 public:
     DemoViewController()
     {
-        v.width = 640;
-        v.height = 480;
-        addSubview(&v);
+        //        v.width = 640;
+        //        v.height = 480;
+        //        addSubview(&v);
+
+        auto d_c = ImGui::CreateDockContext();
+        ImGui::SetCurrentDockContext(d_c);
     }
-    
-    virtual void drawLayerContents() override{
-//        ImGuiCe::CodeEditor();        
-        // ImGui::Text("test");
+
+    virtual void drawLayerContents() override
+    {
+
+        ImGui::BeginDockspace();
+
+        bool b1 = true;
+        ImGui::BeginDock("dock 1", &b1);
+        ImGui::EndDock();
+
+        ImGui::BeginDock("dock 2");
+        ImGui::EndDock();
+
+        ImGui::EndDockspace();
     };
 };
 
 #endif /* DemoViewController_hpp */
-

@@ -18,7 +18,7 @@ class IUTestLayer : public IULayer {
 
 public:
     int drawCalled = 0;
-    std::vector<IULayer*> subviews() { return _subviews; };
+    std::vector<IULayer*> subviews() { return _sublayers; };
 
     virtual void draw() override
     {

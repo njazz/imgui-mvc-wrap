@@ -35,6 +35,8 @@ IUWindowController::IUWindowController(IUViewController* vc, std::string title, 
     if ((x >= 0) || (y >= 0)) {
         glfwSetWindowPos(core.glWindow, x, y);
     }
+    
+    _dockContext = ImGui::CreateDockContext();
 }
 
 IUWindowController::~IUWindowController()
@@ -143,10 +145,16 @@ void IUWindowController::_drawAll()
     if (!_viewController)
         return;
 
+    ImGui::SetCurrentDockContext(_dockContext);
+    
+
+    
     _viewController->width = width / 2;
     _viewController->height = height / 2;
 
     _viewController->draw();
+    
+    
 }
 
 void IUWindowController::_render()

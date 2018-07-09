@@ -17,14 +17,16 @@
 
 #include "IUWindowController.hpp"
 
-class IUMenuBase {
+#include "IUBase.hpp"
+
+class IUMenuBase : public IUBaseT<IUMenuBase> {
     std::map<int, IUAction*> _actions;
     std::map<int, IUShortcut*> _shortcuts;
 
 public:
     std::string name;
 
-    IUWindowController* windowController = 0;
+//    IUWindowController* windowController = 0;
 
     void shortcut(int action = 0, IUShortcut shortcut = IUShortcut::None());
 
@@ -32,10 +34,8 @@ public:
 
     void _itemAction(int action);
 
-    virtual void shortcuts();
-    virtual void draw();
-
-    void menu();
+    virtual void draw() override;
+    virtual void drawContents() override {};
 
     void setAction(int key, IUAction* a) { _actions[key] = a; };
 

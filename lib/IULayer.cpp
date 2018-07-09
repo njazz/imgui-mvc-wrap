@@ -35,12 +35,13 @@ void IULayer::_drawAllContents()
 {
     _setBounds();
     drawLayerContents();
-    _drawSubviews();
+//    drawContents();
+    if (!hidden)
+    _drawComponents();
 }
 
 void IULayer::draw()
 {
-
     if (manualLayout)
         ImGui::SetCursorPos(pos());
 
@@ -64,50 +65,41 @@ void IULayer::draw()
     ImGui::PopStyleVar();
 };
 
-void IULayer::_drawSubviews()
-{
-    if (hidden)
-        return;
-
-    for (int i = 0; i < _subviews.size(); i++) {
-        _subviews[i]->draw();
-    }
-};
+//void IULayer::_drawSublayers()
+//{
+//    if (hidden)
+//        return;
+//
+//    for (auto v:_sublayers) {
+//        v->draw();
+//    }
+//};
 
 void IULayer::addSubview(IULayer* v)
 {
     if (!v)
         return;
 
-    _subviews.push_back(v);
+//    _sublayers.push_back(v);
+    addComponent(v);
     v->_parent = this;
-    v->setWindowController(_windowController);
+//    v->setWindowController(_windowController);
 }
 
 void IULayer::removeSubview(IULayer* v)
 {
-    _subviews.erase(std::remove(_subviews.begin(), _subviews.end(), v), _subviews.end());
+    //_sublayers.erase(std::remove(_sublayers.begin(), _sublayers.end(), v), _sublayers.end());
+    removeComponent(v);
+    v->_parent = 0;
 }
 
 void IULayer::removeAllSubviews()
 {
-    for (IULayer* d : _subviews)
+    for (auto d : _components)
         d->_parent = 0;
 
-    _subviews.clear();
+    clearComponents();
+    //_sublayers.clear();
 }
 
-void IULayer::setWindowController(IUWindowController* w)
-{
-    if (!w)
-        return;
-    _windowController = w;
-    for (IULayer* v : _subviews) {
-        v->setWindowController(w);
-    }
-}
 
-IUWindowController* IULayer::windowController()
-{
-    return _windowController;
-}

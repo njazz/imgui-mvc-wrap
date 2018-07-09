@@ -23,6 +23,8 @@
 
 #include <string>
 
+#include "imguidock.h"
+
 class IUWindowController {
     IUImplementation core;
 
@@ -40,6 +42,8 @@ class IUWindowController {
     std::string _title = "Window";
 
 //    ImGuiContext* _context = 0;
+    
+    ImGui::DockContext* _dockContext = 0;
 
 public:
     IUWindowController(IUViewController* vc = 0, std::string title = "Window", int x = -1, int y = -1, int width = 1280, int height = 720);
@@ -79,5 +83,7 @@ public:
     {
         glfwSetWindowShouldClose(core.glWindow, true);
     }
+    
+    
 };
 #endif /* IUWindowController_hpp */
