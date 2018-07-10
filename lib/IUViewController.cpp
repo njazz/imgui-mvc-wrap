@@ -9,26 +9,27 @@
 #include "IUMainMenuBase.hpp"
 #include "IUWindowController.hpp"
 
-void IUViewController::setWindowController(IUWindowController* w)
+void IUViewControllerBase::setWindowController(IUWindowController* w)
 {
     IUView::setWindowController(w);
 }
 
-void IUViewController::draw()
+void IUViewControllerBase::draw()
 {
-//    ImGui::SetWindowFontScale(scale());
+    //    ImGui::SetWindowFontScale(scale());
 
-    if (dockSpace)
-        ImGui::BeginDockspace();
-    
+//    if (dockSpace)
+//        ImGui::BeginDockspace();
+
     drawMenu();
 
     // subs
     for (auto s : _subControllers)
         if (!s->hidden)
             s->draw();
-    if (_subControllers.size())
-        return;
+    // ?
+//    if (_subControllers.size())
+//        return;
 
     // setup
     ImGui::SetNextWindowPos(pos());
@@ -52,6 +53,7 @@ void IUViewController::draw()
 
     _drawAllContents();
     _handleMouse();
+    _shortcutComponents();
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
@@ -59,18 +61,16 @@ void IUViewController::draw()
     if (dockable)
         ImGui::EndDock();
     else
-    ImGui::End();
+        ImGui::End();
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
-    
-    if (dockSpace)
-        ImGui::EndDockspace();
-    
-//    _shortcutComponents();
+
+//    if (dockSpace)
+//        ImGui::EndDockspace();
 }
 
-void IUViewController::drawMenu()
+void IUViewControllerBase::drawMenu()
 {
     if (menu)
         menu->draw();

@@ -27,7 +27,7 @@ protected:
 
     ImVec2 _getContentSize();
 
-    void _setBounds();
+//    void _setBounds();
 
     void _drawAllContents();
 

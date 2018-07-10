@@ -41,44 +41,38 @@ void IUView::updated(int key)
     }
 }
 
+//template<>
+//void IUView::_classSpecificMouseHandler<IUView>()
+//{
+//    
+//}
+
 // ---
 void IUView::_handleMouse()
 {
     if (!ImGui::GetCurrentContext())
         return;
-
     if (!mouseEnabled)
         return;
 
-    // DEBUG:
-    //        ImGui::BeginTooltip();
-    //        ImGui::Text("hover %f %f / mouse %f %f / win %f %f", posInWindow().x, posInWindow().y, ImGui::GetIO().MousePos.x,ImGui::GetIO().MousePos.y ,ImGui::GetWindowPos().x,ImGui::GetWindowPos().y);
-    //        ImGui::EndTooltip();
 
-    //ImGui::InvisibleButton(const char *str_id, const ImVec2 &size);
+    ImVec2 pos;
+    
+    if (_isMouseHover())
+        onMouseHover(pos);
+    else
+        onMouseExit(pos);
 
-    //if (!ImGui::IsMouseHoveringRect(posInWindow(), ImVec2(posInWindow().x  + width, posInWindow().y  + height)))
-
-    //    if (!_hoveringView)
-    //        return;
-
-    if (_hoveringView)
-        mouseHoverAction();
-//    else
-//        return;
-
-    //    if (!ImGui::IsMouseHoveringRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax()))
-    //        return;
-
-    if (ImGui::IsMouseClicked(0)) {
-        mouseDownAction();
+    if (_isMouseDown()) {
+        onMouseDown(pos);
     }
 
-    if (ImGui::IsMouseReleased(0))
-        mouseUpAction();
+    if (_isMouseReleased())
+        onMouseUp(pos);
 
-    if (ImGui::IsMouseDragging())
-        mouseDragAction();
+    if (_isMouseDragged())
+        onMouseDrag(pos);
+    
 }
 
 // ---
@@ -109,13 +103,13 @@ void IUView::draw()
     ImGui::PopStyleVar();
 
     ImGui::EndChildFrame();
-    _hoveringView = ImGui::IsItemHovered();
-    _handleMouse();
-
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
     
+    //_hoveringView = ImGui::IsItemHovered();
+    _handleMouse();
     _shortcutComponents();
+    
 //    _updateComponents();
 };
 

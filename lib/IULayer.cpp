@@ -23,21 +23,20 @@ ImVec2 IULayer::_getContentSize()
     return ImVec2(contentSize.x < width ? width : contentSize.x, contentSize.y < height ? height : contentSize.y);
 }
 
-void IULayer::_setBounds()
-{
-    // TODO?
-    //    const ImRect rect(x,y,width,height);
-    //    ImGui::ItemSize(rect, padding);
-    //    ImGui::ItemAdd(rect, 0, &rect);
-}
+//void IULayer::_setBounds()
+//{
+//    // TODO?
+//    //    const ImRect rect(x,y,width,height);
+//    //    ImGui::ItemSize(rect, padding);
+//    //    ImGui::ItemAdd(rect, 0, &rect);
+//}
 
 void IULayer::_drawAllContents()
 {
-    _setBounds();
+//    _setBounds();
     drawLayerContents();
-//    drawContents();
     if (!hidden)
-    _drawComponents();
+        _drawComponents();
 }
 
 void IULayer::draw()

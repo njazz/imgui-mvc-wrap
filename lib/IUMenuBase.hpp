@@ -64,6 +64,10 @@ public:
             ImGui::EndPopup();
         }
     };
+
+    void openPopup(){
+        ImGui::OpenPopup(name.c_str());
+    }
 };
 
 #endif

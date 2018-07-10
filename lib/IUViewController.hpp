@@ -22,12 +22,12 @@ class IUMainMenuBase;
 //#include "IUMainMenuBase.hpp"
 
 // imgui "window"
-class IUViewController : public IUView {
+class IUViewControllerBase : public IUView {
     friend class IUWindowController;
 
-    std::vector<IUViewController*>_subControllers;
+    std::vector<IUViewControllerBase*>_subControllers;
 public:
-    IUViewController()
+    IUViewControllerBase()
     {
         idString = "VC" + std::to_string((long)this);
         flags = flags | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar;
@@ -43,7 +43,7 @@ public:
     virtual void setWindowController(IUWindowController* w) override;
 
     // test:
-    void addSubcontroller(IUViewController* v)
+    void addSubcontroller(IUViewControllerBase* v)
     {
         if (!v) return;
         v->_parent = this;
@@ -60,6 +60,32 @@ public:
     IUMainMenuBase* menu = 0;
     
     bool dockable = false;
-    bool dockSpace = false;
+//    bool dockSpace = false;
 };
+
+//
+class IUViewController : public IUViewControllerBase
+{};
+
+class IUDockableViewController : public IUViewControllerBase
+{};
+
+class IUDockViewController : public IUViewControllerBase
+{
+public:
+    virtual void draw() override
+    {
+        drawMenu();
+        
+        ImGui::BeginDockspace();
+        
+        _drawComponents();
+        _shortcutComponents();
+        
+        ImGui::EndDockspace();
+    }
+};
+
+
+
 #endif /* IUViewController_hpp */

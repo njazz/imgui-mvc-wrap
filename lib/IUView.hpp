@@ -27,15 +27,35 @@ class IUMenuBase;
 class IUView : public IULayer {
 
     std::map<int, std::vector<IUAction*> > _actions;
-    
-    bool _hoveringView = false;
+
+    bool _hovered = false;
+
+    bool _mouseDownFlag = false;
 
 protected:
-    void _handleMouse();
+    inline bool _isMouseDown()
+    {
+        bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)));
+        if (ret)
+            _mouseDownFlag = true;
+        return ret;
+    }
+    inline bool _isMouseHover() { return ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)); }
+    inline bool _isMouseReleased()
+    {
+        bool ret = ImGui::IsMouseReleased(0) && _mouseDownFlag;
+        if (ret)
+            _mouseDownFlag = false;
+        return ret;
+    }
+    inline bool _isMouseDragged() { return ImGui::IsMouseDragging() && _mouseDownFlag; }
+
+    //
+    virtual void _handleMouse();
 
 public:
     IUView();
-    
+
     IUMenuBase* contextMenu = 0;
 
     float alpha = 0.75;
@@ -43,22 +63,27 @@ public:
     void addAction(int k, IUAction* o);
     void removeAction(int k, IUAction* o);
     void removeAllActions(int k);
-
-    //---
-
     void updated(int key);
+    //---
 
     void removeFromParentView();
 
     virtual void draw() override;
-    
+
     bool mouseEnabled = true;
 
-    IUAction mouseDownAction;
-    IUAction mouseUpAction;
-    IUAction mouseDragAction;
-    IUAction mouseHoverAction;
-    
+    virtual void onMouseDown(ImVec2 pos){};
+    virtual void onMouseHover(ImVec2 pos){
+        _hovered = true;
+    };
+    virtual void onMouseExit(ImVec2 pos){
+        _hovered = false;
+    };
+    virtual void onMouseUp(ImVec2 pos){};
+    virtual void onMouseDrag(ImVec2 pos){};
+
+    virtual void onMouseDoubleClick(ImVec2 pos){};
+    virtual void onMouseRightClick(ImVec2 pos){};
 };
 
 #endif /* IUView_hpp */
