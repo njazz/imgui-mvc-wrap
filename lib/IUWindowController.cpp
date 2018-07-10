@@ -18,7 +18,7 @@
 //{
 //    _initWindow();
 //}
-IUWindowController::IUWindowController(IUViewController* vc, std::string title, int x, int y, int w, int h)
+IUWindowController::IUWindowController(IUViewControllerBase* vc, std::string title, int x, int y, int w, int h)
 {
     setViewController(vc);
 
@@ -27,7 +27,7 @@ IUWindowController::IUWindowController(IUViewController* vc, std::string title, 
 
     this->x = x;
     this->y = y;
-
+    
     _initWindow();
 
     setTitle(title);
@@ -47,7 +47,7 @@ IUWindowController::~IUWindowController()
 // ---
 #pragma mark -
 
-void IUWindowController::setViewController(IUViewController* vc)
+void IUWindowController::setViewController(IUViewControllerBase* vc)
 {
     _viewController = vc;
     if (!vc)

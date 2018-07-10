@@ -100,6 +100,8 @@ public:
             _components.push_back(c);
 
         });
+        
+        _updateComponents();
     }
     void removeComponent(T* c)
     {
@@ -110,6 +112,8 @@ public:
             _components.erase(std::remove(_components.begin(), _components.end(), c));
 
         });
+        
+        _updateComponents();
     }
     void clearComponents()
     {
@@ -119,6 +123,8 @@ public:
             _components.clear();
 
         });
+        
+        _updateComponents();
     }
 
     virtual void setWindowController(IUWindowController* w) override

@@ -13,12 +13,13 @@
 #include "IUView.hpp"
 #include "IUViewController.hpp"
 #include "IUImplementation.hpp"
+#include "IUShortcut.hpp"
 
 class IUTestLayer : public IULayer {
 
 public:
     int drawCalled = 0;
-    std::vector<IULayer*> subviews() { return _sublayers; };
+    std::vector<IULayerBase*> subviews() { return _components; };
 
     virtual void draw() override
     {
@@ -32,6 +33,13 @@ public:
 @end
 
 @implementation imgui_mvc_tests
+
+-(void)testShortcut
+{
+    IUShortcut s;
+    
+    // todo: todo
+}
 
 - (void)testIULayer
 {
@@ -72,7 +80,7 @@ public:
     XCTAssert(subLayer.drawCalled == 2);
 }
 
-- (void)testIUObserver
+- (void)testIUAction
 {
     int observerCalled = 0;
     IUAction b = IUAction([&observerCalled]() {

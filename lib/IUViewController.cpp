@@ -23,13 +23,8 @@ void IUViewControllerBase::draw()
 
     drawMenu();
 
-    // subs
-    for (auto s : _subControllers)
-        if (!s->hidden)
-            s->draw();
-    // ?
-//    if (_subControllers.size())
-//        return;
+    _drawSubcontrollers();
+
 
     // setup
     ImGui::SetNextWindowPos(pos());
@@ -43,9 +38,9 @@ void IUViewControllerBase::draw()
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
 
-    if (dockable)
-        ImGui::BeginDock(title.c_str(), &display, flags);
-    else
+//    if (dockable)
+//        ImGui::BeginDock(title.c_str(), &display, flags);
+//    else
         ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
@@ -58,9 +53,9 @@ void IUViewControllerBase::draw()
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 
-    if (dockable)
-        ImGui::EndDock();
-    else
+//    if (dockable)
+//        ImGui::EndDock();
+//    else
         ImGui::End();
 
     ImGui::PopStyleVar();

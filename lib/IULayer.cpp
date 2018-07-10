@@ -81,10 +81,9 @@ void IULayer::addSubview(IULayer* v)
     if (!v)
         return;
 
-//    _sublayers.push_back(v);
     addComponent(v);
     v->_parent = this;
-//    v->setWindowController(_windowController);
+
 }
 
 void IULayer::removeSubview(IULayer* v)

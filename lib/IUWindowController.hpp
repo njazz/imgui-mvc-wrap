@@ -28,7 +28,7 @@
 class IUWindowController {
     IUImplementation core;
 
-    IUViewController* _viewController = 0;
+    IUViewControllerBase* _viewController = 0;
 
     static void _errorCallback(int error, const char* description);
 
@@ -46,11 +46,11 @@ class IUWindowController {
     ImGui::DockContext* _dockContext = 0;
 
 public:
-    IUWindowController(IUViewController* vc = 0, std::string title = "Window", int x = -1, int y = -1, int width = 1280, int height = 720);
+    IUWindowController(IUViewControllerBase* vc = 0, std::string title = "Window", int x = -1, int y = -1, int width = 1280, int height = 720);
     ~IUWindowController();
 
-    void setViewController(IUViewController* vc);
-    IUViewController* viewController() { return _viewController; }
+    void setViewController(IUViewControllerBase* vc);
+    IUViewControllerBase* viewController() { return _viewController; }
 
 //    GLFWwindow* glWindow;
     ImVec4 clearColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);

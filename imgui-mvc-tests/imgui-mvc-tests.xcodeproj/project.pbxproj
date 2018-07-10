@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310CB54C20F4F41800E45125 /* imguidock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325DE20BC4C6900FE74EA /* imguidock.cpp */; };
 		316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325A720BC446600FE74EA /* IULayerBase.cpp */; };
 		316325B320BC48D400FE74EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316325B220BC48D400FE74EA /* Assets.xcassets */; };
 		316325C020BC490000FE74EA /* AppController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325BE20BC490000FE74EA /* AppController.cpp */; };
@@ -607,6 +608,7 @@
 				31C9C8592075057F00C68589 /* imgui_draw.cpp in Sources */,
 				31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */,
 				31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */,
+				310CB54C20F4F41800E45125 /* imguidock.cpp in Sources */,
 				31C66E8220F295FC00C90AB1 /* ioapi.c in Sources */,
 				316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */,
 				31C9C8512075057F00C68589 /* IUAction.cpp in Sources */,
