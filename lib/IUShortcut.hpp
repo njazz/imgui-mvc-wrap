@@ -60,6 +60,11 @@ public:
     static IUKey Equal() {return IUKey("=",{GLFW_KEY_EQUAL});}
     static IUKey Minus() {return IUKey("-",{GLFW_KEY_MINUS});}
 
+    static IUKey Up() {return IUKey("Up",{GLFW_KEY_UP});}
+    static IUKey Down() {return IUKey("Down",{GLFW_KEY_DOWN});}
+    static IUKey Left() {return IUKey("Left",{GLFW_KEY_LEFT});}
+    static IUKey Right() {return IUKey("Right",{GLFW_KEY_RIGHT});}
+
     KEY_C(A);
     KEY_C(B);
     KEY_C(C);

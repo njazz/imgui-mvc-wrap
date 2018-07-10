@@ -42,7 +42,8 @@ bool IUShortcut::keyPressed()
         ret = ret && k.keyPressed();
     }
     
-    if (ret) printf("ret\n");
+    if (ret)
+        printf("ret\n");
 
     if (ret)
     //        for (int i = 0; i < 512; i++)
