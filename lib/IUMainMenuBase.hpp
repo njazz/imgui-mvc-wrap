@@ -8,13 +8,19 @@
 #include "IUBase.hpp"
 
 class IUMainMenuBase : public IUBaseT<IUMenuBase> {
-//    std::vector<IUMenuBase*> _menus;
 
 public:
     virtual void draw() override;
-    //virtual void shortcuts() override{};
 
     void addMenu(IUMenuBase* m, std::string name = "");
 };
 
+
+class IUMenuBarBase : public IUBaseT<IUMenuBase> {
+
+public:
+    virtual void draw() override;
+
+    void addMenu(IUMenuBase* m, std::string name = "");
+};
 #endif

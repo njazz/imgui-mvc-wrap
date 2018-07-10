@@ -28,11 +28,12 @@ class IUView : public IULayer {
 
     std::map<int, std::vector<IUAction*> > _actions;
 
-    bool _hovered = false;
-
+    
     bool _mouseDownFlag = false;
 
 protected:
+    bool _hovered = false;
+    
     inline bool _isMouseDown()
     {
         bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)));

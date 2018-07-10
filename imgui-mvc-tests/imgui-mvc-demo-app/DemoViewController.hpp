@@ -33,8 +33,8 @@ public:
         //        v.height = 480;
         //        addSubview(&v);
 
-        auto d_c = ImGui::CreateDockContext();
-        ImGui::SetCurrentDockContext(d_c);
+//        auto d_c = ImGui::CreateDockContext();
+//        ImGui::SetCurrentDockContext(d_c);
         
         _vc1.title = "dock 1";
         _vc2.title = "dock 2";

@@ -81,6 +81,7 @@ class IUViewController : public IUViewControllerBase {
 };
 
 class IUDockableViewController : public IUViewControllerBase {
+public:
     virtual void draw() override
     {
 
@@ -118,6 +119,10 @@ class IUDockableViewController : public IUViewControllerBase {
 
 class IUDockViewController : public IUViewControllerBase {
 public:
+    IUDockViewController() : IUViewControllerBase(){
+        auto d_c = ImGui::CreateDockContext();
+        ImGui::SetCurrentDockContext(d_c);
+    }
     virtual void draw() override
     {
         drawMenu();
