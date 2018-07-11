@@ -35,12 +35,12 @@ protected:
 
     inline bool _isMouseDown()
     {
-        bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsWindowHovered(ImGuiHoveredFlags_ChildWindows)&& ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)));
+        bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsWindowHovered(ImGuiHoveredFlags_ChildWindows) && _isMouseHover());
         if (ret)
             _mouseDownFlag = true;
         return ret;
     }
-    inline bool _isMouseHover() { return ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)); }
+    inline bool _isMouseHover() { return ImGui::IsMouseHoveringRect(posInWindow(), ImVec2(posInWindow().x + width, posInWindow().y + height)); }
     inline bool _isMouseReleased()
     {
         bool ret = ImGui::IsMouseReleased(0) && _mouseDownFlag;
@@ -50,11 +50,13 @@ protected:
     }
     inline bool _isMouseDragged() { return ImGui::IsMouseDragging() && _mouseDownFlag; }
 
-    inline bool _isMouseDoubleClicked(){
+    inline bool _isMouseDoubleClicked()
+    {
         return ImGui::IsMouseDoubleClicked(0) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height));
     }
 
-    inline bool _isMouseRightClicked(){
+    inline bool _isMouseRightClicked()
+    {
         return ImGui::IsMouseClicked(1) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height));
     }
 
