@@ -101,7 +101,7 @@ void IUView::draw()
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
 
-    ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size());
+    ImGui::BeginChildFrame(ImGui::GetID(idString.c_str()), size(),flags);
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);

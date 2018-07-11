@@ -101,6 +101,9 @@ public:
     void addSubview(IUView* v);
     void removeSubview(IUView* v);
     void removeAllSubviews();
+
+    //
+    ImGuiWindowFlags flags = 0;
 };
 
 #endif /* IUView_hpp */

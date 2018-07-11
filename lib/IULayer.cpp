@@ -36,7 +36,7 @@ void IULayer::_drawAllContents()
     if (hidden)
         return;
 
-    IULayerBase::draw();
+    IUBaseT<IULayerBase>::draw();
 
 }
 

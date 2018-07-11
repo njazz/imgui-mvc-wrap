@@ -41,13 +41,13 @@ public:
     IUViewControllerBase()
     {
         idString = "VC" + std::to_string((long)this);
-        flags = flags | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar;
+        flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize  | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar;
 
         zoomable = false;
     }
 
     std::string title = "";
-    ImGuiWindowFlags flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoFocusOnAppearing; // | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus
+//    ImGuiWindowFlags flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoFocusOnAppearing; // | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus
 
     //    bool display = true; // todo property
 
@@ -77,9 +77,9 @@ class IUViewController : public IUViewControllerBase {
 //
 class IUViewContainer : public IUViewControllerBase {
 private:
-    void addSubview(IUView* v){};
-    void removeSubview(IUView* v){};
-    void removeAllSubviews(IUView* v){};
+    void addSubview(IUView* v);
+    void removeSubview(IUView* v);
+    void removeAllSubviews(IUView* v);
 
 public:
     void addSubcontroller(IUViewControllerBase* v)
@@ -123,7 +123,7 @@ public:
         _drawComponents();
         //        _shortcutContents();
         _shortcutComponents();
-        _handleMouse();
+//        _handleMouse();
         //    _shortcutComponents();
 
         //        ImGui::PopStyleVar();
