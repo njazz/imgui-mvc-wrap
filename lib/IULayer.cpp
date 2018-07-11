@@ -23,26 +23,24 @@ ImVec2 IULayer::_getContentSize()
     return ImVec2(contentSize.x < width ? width : contentSize.x, contentSize.y < height ? height : contentSize.y);
 }
 
-//void IULayer::_setBounds()
-//{
-//    // TODO?
-//    //    const ImRect rect(x,y,width,height);
-//    //    ImGui::ItemSize(rect, padding);
-//    //    ImGui::ItemAdd(rect, 0, &rect);
-//}
+void IULayer::_setBounds()
+{
+    // TODO?
+    const ImRect rect(x, y, width, height);
+    ImGui::ItemSize(rect, padding);
+    ImGui::ItemAdd(rect, 0, &rect);
+}
 
 void IULayer::_drawAllContents()
 {
-//    _setBounds();
-    drawLayerContents();
-    if (!hidden)
-        _drawComponents();
+    if (hidden)
+        return;
+
+    IULayerBase::draw();
 }
 
 void IULayer::draw()
 {
-    // ImGui::SetWindowFontScale(scale());
-
     if (manualLayout)
         ImGui::SetCursorPos(pos());
 
@@ -56,7 +54,9 @@ void IULayer::draw()
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
 
-    _drawAllContents();
+    // base
+    if (hidden)
+        IULayerBase::draw();
 
     ImGui::PopStyleVar();
 
@@ -66,40 +66,26 @@ void IULayer::draw()
     ImGui::PopStyleVar();
 };
 
-//void IULayer::_drawSublayers()
-//{
-//    if (hidden)
-//        return;
-//
-//    for (auto v:_sublayers) {
-//        v->draw();
-//    }
-//};
-
-void IULayer::addSubview(IULayer* v)
+void IULayer::addSublayer(IULayer* v)
 {
     if (!v)
         return;
 
-    addComponent(v);
     v->_parent = this;
-
+    addComponent(v);
 }
 
-void IULayer::removeSubview(IULayer* v)
+void IULayer::removeSublayer(IULayer* v)
 {
-    //_sublayers.erase(std::remove(_sublayers.begin(), _sublayers.end(), v), _sublayers.end());
     removeComponent(v);
     v->_parent = 0;
 }
 
-void IULayer::removeAllSubviews()
+void IULayer::removeAllSublayers()
 {
     for (auto d : _components)
         d->_parent = 0;
 
     clearComponents();
-    //_sublayers.clear();
 }
-
 

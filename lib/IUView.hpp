@@ -85,6 +85,19 @@ public:
 
     virtual void onMouseDoubleClick(ImVec2 pos){};
     virtual void onMouseRightClick(ImVec2 pos){};
+    
+    void addSubview(IUView* v)
+    {
+        addSublayer(v);
+    }
+    void removeSubview(IUView* v)
+    {
+        removeSublayer(v);
+    }
+    void removeAllSubviews()
+    {
+        removeAllSublayers();
+    }
 };
 
 #endif /* IUView_hpp */

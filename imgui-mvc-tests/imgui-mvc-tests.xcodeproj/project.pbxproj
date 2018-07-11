@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		310CB54C20F4F41800E45125 /* imguidock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325DE20BC4C6900FE74EA /* imguidock.cpp */; };
+		313C085E20F5E6C600C44259 /* IUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C085C20F5E6C600C44259 /* IUBase.cpp */; };
+		313C085F20F5E6C600C44259 /* IUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C085C20F5E6C600C44259 /* IUBase.cpp */; };
 		316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325A720BC446600FE74EA /* IULayerBase.cpp */; };
 		316325B320BC48D400FE74EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316325B220BC48D400FE74EA /* Assets.xcassets */; };
 		316325C020BC490000FE74EA /* AppController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325BE20BC490000FE74EA /* AppController.cpp */; };
@@ -60,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		313C085C20F5E6C600C44259 /* IUBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUBase.cpp; sourceTree = "<group>"; };
+		313C085D20F5E6C600C44259 /* IUBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUBase.hpp; sourceTree = "<group>"; };
 		316325A620BC446500FE74EA /* IULayerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IULayerBase.hpp; sourceTree = "<group>"; };
 		316325A720BC446600FE74EA /* IULayerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IULayerBase.cpp; sourceTree = "<group>"; };
 		316325AD20BC48D400FE74EA /* imgui-mvc-demo-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "imgui-mvc-demo-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -405,6 +409,8 @@
 				31C9C8282075057F00C68589 /* AppControllerBase.hpp */,
 				31C9C8292075057F00C68589 /* IUImplementation.cpp */,
 				31C9C82A2075057F00C68589 /* IUImplementation.hpp */,
+				313C085C20F5E6C600C44259 /* IUBase.cpp */,
+				313C085D20F5E6C600C44259 /* IUBase.hpp */,
 				316325A720BC446600FE74EA /* IULayerBase.cpp */,
 				316325A620BC446500FE74EA /* IULayerBase.hpp */,
 				31C9C82B2075057F00C68589 /* IULayer.cpp */,
@@ -516,7 +522,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -576,6 +582,7 @@
 				31C66E8B20F299BD00C90AB1 /* imguidock.cpp in Sources */,
 				3163262420BC54EA00FE74EA /* ZoomableView.cpp in Sources */,
 				316325C820BC4A9400FE74EA /* IUMainMenuBase.cpp in Sources */,
+				313C085F20F5E6C600C44259 /* IUBase.cpp in Sources */,
 				316325C320BC4A3300FE74EA /* main.cpp in Sources */,
 				316325D720BC4C0900FE74EA /* DemoViewController.cpp in Sources */,
 				316325D220BC4AB000FE74EA /* gl3w.c in Sources */,
@@ -609,6 +616,7 @@
 				31C9C8522075057F00C68589 /* IUShortcut.cpp in Sources */,
 				31C9C8542075057F00C68589 /* IUViewController.cpp in Sources */,
 				310CB54C20F4F41800E45125 /* imguidock.cpp in Sources */,
+				313C085E20F5E6C600C44259 /* IUBase.cpp in Sources */,
 				31C66E8220F295FC00C90AB1 /* ioapi.c in Sources */,
 				316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */,
 				31C9C8512075057F00C68589 /* IUAction.cpp in Sources */,
@@ -644,7 +652,7 @@
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -658,7 +666,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "imgui-mvc-demo-app/imgui-mvc-demo-app.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -711,7 +718,7 @@
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -725,7 +732,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "imgui-mvc-demo-app/imgui-mvc-demo-app.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

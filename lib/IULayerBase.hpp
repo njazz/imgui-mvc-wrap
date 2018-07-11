@@ -28,12 +28,17 @@ protected:
     IULayerBase* _parent = 0;
     
 public:
+    // id
+    std::string idString;
+    
     IULayerBase();
 
-    std::string idString;
+    // main
+//    virtual void drawLayerContents(){};
 
-    virtual void drawLayerContents(){};
-
+    // size
+    bool manualLayout = false;
+    
     float x = 0;
     float y = 0;
     float width = 0;

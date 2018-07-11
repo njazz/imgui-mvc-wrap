@@ -48,7 +48,7 @@ void IUMenuBase::draw()
 
     if (ImGui::BeginMenu(name.c_str())) {
         _drawComponents();
-        drawContents();
+        _drawContents();
         ImGui::EndMenu();
     }
 

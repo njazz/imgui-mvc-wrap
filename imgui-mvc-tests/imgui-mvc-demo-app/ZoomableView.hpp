@@ -52,7 +52,7 @@ public:
         addSubview(o);
     }
 
-    virtual void drawLayerContents() override
+    virtual void _drawContents() override
     {
         
         ImGui::Text("Font scale: %f",ImGui::GetCurrentWindow()->FontWindowScale);

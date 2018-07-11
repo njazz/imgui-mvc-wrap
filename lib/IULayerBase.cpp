@@ -25,16 +25,4 @@ ImVec2 IULayerBase::pos()
     return ImVec2(x * scale(), y * scale());
 };
 
-//inline float IULayerBase::scale()
-//{
-//    //return 1;
-//    return (zoomable) ? ImGui::GetCurrentWindow()->FontWindowScale : 1;
-//}
 
-//void IUSubLayer::draw()
-//{
-//    ImGui::BeginChild(ImGui::GetID(idString.c_str()));
-//    if (!hidden)
-//        drawLayerContents();
-//    ImGui::EndChild();
-//};

@@ -23,4 +23,5 @@ public:
 
     void addMenu(IUMenuBase* m, std::string name = "");
 };
+
 #endif

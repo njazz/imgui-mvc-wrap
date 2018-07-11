@@ -35,7 +35,7 @@ public:
     void _itemAction(int action);
 
     virtual void draw() override;
-    virtual void drawContents() override {};
+    virtual void _drawContents() override {};
 
     void setAction(int key, IUAction* a) { _actions[key] = a; };
 
@@ -59,8 +59,11 @@ public:
         shortcuts();
 
         if (ImGui::BeginPopupContextItem(name.c_str())) {
-            _drawComponents();
-            drawContents();
+//            _drawComponents();
+//            _drawContents();
+            
+            IUBaseT<IUMenuBase>::draw();
+            
             ImGui::EndPopup();
         }
     };

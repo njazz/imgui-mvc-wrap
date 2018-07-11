@@ -3,18 +3,17 @@
 
 void IUMainMenuBase::draw()
 {
-//    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
-//    ImGui::SetWindowFontScale(1);
+    // todo: font scale
+    //    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
+    //    ImGui::SetWindowFontScale(1);
 
     ImGui::BeginMainMenuBar();
 
-    _drawComponents();
-    _shortcutComponents();
+    IUBaseT<IUMenuBase>::draw();
 
     ImGui::EndMainMenuBar();
 
-//    ImGui::SetWindowFontScale(fontScale);
-
+    //    ImGui::SetWindowFontScale(fontScale);
 }
 
 void IUMainMenuBase::addMenu(IUMenuBase* m, std::string name)
@@ -27,18 +26,11 @@ void IUMainMenuBase::addMenu(IUMenuBase* m, std::string name)
 
 void IUMenuBarBase::draw()
 {
-//    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
-//    ImGui::SetWindowFontScale(1);
-
     ImGui::BeginMenuBar();
 
-    _drawComponents();
-    _shortcutComponents();
+    IUBaseT<IUMenuBase>::draw();
 
     ImGui::EndMenuBar();
-
-//    ImGui::SetWindowFontScale(fontScale);
-
 }
 
 void IUMenuBarBase::addMenu(IUMenuBase* m, std::string name)

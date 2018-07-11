@@ -27,12 +27,10 @@ protected:
 
     ImVec2 _getContentSize();
 
-//    void _setBounds();
-
     void _drawAllContents();
-
+    
+    void _setBounds();
 public:
-    bool manualLayout = false;
 
     float padding = 0;
 
@@ -40,9 +38,9 @@ public:
 
     virtual void draw();
 
-    void addSubview(IULayer* v);
-    void removeSubview(IULayer* v);
-    void removeAllSubviews();
+    void addSublayer(IULayer* v);
+    void removeSublayer(IULayer* v);
+    void removeAllSublayers();
 
     //
     ImVec2 offset = ImVec2(0, 0);
@@ -56,7 +54,6 @@ public:
         return ImVec2(x + offset.x, y + offset.y);
     }
     void updateOffset() { offset = ImGui::GetCursorScreenPos(); }
-
     ImVec2 posInWindow()
     {
         auto window = ImGui::GetCurrentWindow();

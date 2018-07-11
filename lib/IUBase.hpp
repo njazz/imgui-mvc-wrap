@@ -14,135 +14,147 @@
 
 class IUWindowController;
 
+// abstract base
 class IUBase {
 protected:
     IUWindowController* _windowController = 0;
 
-    //    std::vector<IUBase*> _components;
-
-    //    void addComponent(IUBase* c) {
-    //        if (!c) return;
-    //        _components.push_back(c); }
-    //    void removeComponent(IUBase* c) {
-    //        if (!c) return;
-    //        _components.erase(std::remove(_components.begin(), _components.end(), c)); }
-    //    void clearComponents() { _components.clear(); }
-
-    //    void _drawComponents()
-    //    {
-    //        for (auto c : _components)
-    //            c->draw();
-    //    }
-    //    void _shortcutComponents()
-    //    {
-    //        for (auto c : _components)
-    //            c->shortcuts();
-    //    }
+    virtual void _drawContents() = 0;
 
 public:
     virtual void draw() = 0;
     virtual void shortcuts() = 0;
 
-    virtual void drawContents() = 0;
-
-    virtual void setWindowController(IUWindowController* w)
-    {
-        _windowController = w;
-    }
-    IUWindowController* windowController() { return _windowController; }
+    virtual void setWindowController(IUWindowController* w);
+    IUWindowController* windowController();
 };
 
 // component type - T
 template <typename T>
 class IUBaseT : public IUBase {
 private:
-    // bool _componentsLock = false;
     std::vector<std::function<void(void)> > _componentUpdateQueue = {};
 
 protected:
     std::vector<T*> _components;
 
-    void _drawComponents()
-    {
-        for (auto c : _components)
-            c->draw();
+    void _drawComponents();
+    void _shortcutComponents();
 
-        _updateComponents();
-    }
-    void _shortcutComponents()
-    {
-        for (auto c : _components)
-            c->shortcuts();
-    }
+    void _updateComponents();
 
-    void _updateComponents()
-    {
-        for (auto q : _componentUpdateQueue)
-            (q)();
-        _componentUpdateQueue.clear();
-    }
+    void _setWindowControllerComponents();
 
-    void _setWindowControllerComponents()
-    {
-        for (auto c : _components)
-            c->_windowController = _windowController;
-    }
+    virtual void _drawContents() override{};
 
 public:
-    void addComponent(T* c)
-    {
-        if (!c)
-            return;
+    void addComponent(T* c);
+    void removeComponent(T* c);
+    void clearComponents();
 
-        _componentUpdateQueue.push_back([&,c]() {
+    virtual void setWindowController(IUWindowController* w) override;
 
-            c->_windowController = _windowController;
-            _components.push_back(c);
-
-        });
-        
-        _updateComponents();
-    }
-    void removeComponent(T* c)
-    {
-        if (!c)
-            return;
-        _componentUpdateQueue.push_back([&,c]() {
-
-            _components.erase(std::remove(_components.begin(), _components.end(), c));
-
-        });
-        
-        _updateComponents();
-    }
-    void clearComponents()
-    {
-
-        _componentUpdateQueue.push_back([&]() {
-
-            _components.clear();
-
-        });
-        
-        _updateComponents();
-    }
-
-    virtual void setWindowController(IUWindowController* w) override
-    {
-        IUBase::setWindowController(w);
-        _setWindowControllerComponents();
-    }
-
-    virtual void draw() override
-    {
-        _drawComponents();
-    };
-
-    virtual void shortcuts() override
-    {
-        _shortcutComponents();
-    }
-
-    virtual void drawContents() override{};
+    virtual void draw() override;
+    virtual void shortcuts() override;
 };
+
+// ---------- template ----------
+
+template <typename T>
+void IUBaseT<T>::_drawComponents()
+{
+    for (auto c : _components)
+        c->draw();
+
+    _updateComponents();
+}
+
+template <typename T>
+void IUBaseT<T>::_shortcutComponents()
+{
+    for (auto c : _components)
+        c->shortcuts();
+}
+
+template <typename T>
+void IUBaseT<T>::_updateComponents()
+{
+    for (auto q : _componentUpdateQueue)
+        (q)();
+    _componentUpdateQueue.clear();
+}
+
+template <typename T>
+void IUBaseT<T>::_setWindowControllerComponents()
+{
+    for (auto c : _components)
+        c->_windowController = _windowController;
+}
+
+template <typename T>
+void IUBaseT<T>::addComponent(T* c)
+{
+    if (!c)
+        return;
+
+    _componentUpdateQueue.push_back([&, c]() {
+
+        c->_windowController = _windowController;
+        _components.push_back(c);
+
+    });
+
+    _updateComponents();
+}
+
+template <typename T>
+void IUBaseT<T>::removeComponent(T* c)
+{
+    if (!c)
+        return;
+    _componentUpdateQueue.push_back([&, c]() {
+
+        _components.erase(std::remove(_components.begin(), _components.end(), c));
+
+    });
+
+    _updateComponents();
+}
+
+template <typename T>
+void IUBaseT<T>::clearComponents()
+{
+
+    _componentUpdateQueue.push_back([&]() {
+
+        _components.clear();
+
+    });
+
+    _updateComponents();
+}
+
+template <typename T>
+void IUBaseT<T>::setWindowController(IUWindowController* w)
+{
+    IUBase::setWindowController(w);
+    _setWindowControllerComponents();
+}
+
+template <typename T>
+void IUBaseT<T>::draw()
+{
+    _drawContents();
+    _drawComponents();
+    _shortcutComponents();
+};
+
+template <typename T>
+void IUBaseT<T>::shortcuts()
+{
+    _shortcutComponents();
+}
+
+
+
 #endif /* IUBase_hpp */

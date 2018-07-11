@@ -7,3 +7,9 @@
 //
 
 #include "IUBase.hpp"
+
+void IUBase::setWindowController(IUWindowController* w)
+{
+    _windowController = w;
+}
+IUWindowController* IUBase::windowController() { return _windowController; }
