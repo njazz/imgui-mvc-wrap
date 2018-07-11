@@ -22,6 +22,8 @@ protected:
     virtual void _drawContents() = 0;
     virtual void _shortcutContents() = 0;
 
+    void _acceptKeyboard();
+    void _acceptMouse();
 public:
     virtual void draw() = 0;
 
@@ -105,7 +107,7 @@ void IUBaseT<T>::addComponent(T* c)
 
     });
 
-    _updateComponents();
+//    _updateComponents();
 }
 
 template <typename T>
@@ -119,7 +121,7 @@ void IUBaseT<T>::removeComponent(T* c)
 
     });
 
-    _updateComponents();
+//    _updateComponents();
 }
 
 template <typename T>
@@ -132,7 +134,7 @@ void IUBaseT<T>::clearComponents()
 
     });
 
-    _updateComponents();
+//    _updateComponents();
 }
 
 template <typename T>

@@ -35,7 +35,7 @@ protected:
 
     inline bool _isMouseDown()
     {
-        bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)));
+        bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsWindowHovered(ImGuiHoveredFlags_ChildWindows)&& ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)));
         if (ret)
             _mouseDownFlag = true;
         return ret;
@@ -49,6 +49,14 @@ protected:
         return ret;
     }
     inline bool _isMouseDragged() { return ImGui::IsMouseDragging() && _mouseDownFlag; }
+
+    inline bool _isMouseDoubleClicked(){
+        return ImGui::IsMouseDoubleClicked(0) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height));
+    }
+
+    inline bool _isMouseRightClicked(){
+        return ImGui::IsMouseClicked(1) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height));
+    }
 
     //
     virtual void _handleMouse();

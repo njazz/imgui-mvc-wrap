@@ -52,10 +52,12 @@ void IUView::updated(int key)
 // ---
 void IUView::_handleMouse()
 {
+//    printf("mouse: %s\n",idString.c_str());
     if (!ImGui::GetCurrentContext())
         return;
     if (!mouseEnabled)
         return;
+//    printf("passed \n");
 
     ImVec2 pos;
 
@@ -73,6 +75,13 @@ void IUView::_handleMouse()
 
     if (_isMouseDragged())
         onMouseDrag(pos);
+
+    if (_isMouseDoubleClicked())
+        onMouseDoubleClick(pos);
+
+    if (_isMouseRightClicked())
+        onMouseRightClick(pos);
+
 }
 
 // ---

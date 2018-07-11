@@ -43,6 +43,10 @@ public:
         _actions = src->_actions;
         _shortcuts = src->_shortcuts;
     }
+
+//    virtual void onMouseDown(ImVec2 pos) override{
+//         _acceptMouse();
+//    };
 };
 
 //class IUPopupMenu : public IUMenuBase {

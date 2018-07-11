@@ -8,8 +8,29 @@
 
 #include "IUBase.hpp"
 
+#include "imgui.h"
+
 void IUBase::setWindowController(IUWindowController* w)
 {
     _windowController = w;
 }
 IUWindowController* IUBase::windowController() { return _windowController; }
+
+void IUBase::_acceptKeyboard()
+{
+
+}
+
+void IUBase::_acceptMouse()
+{
+    ImGui::GetIO().MouseDown[0] = false;
+    ImGui::GetIO().MouseDown[1] = false;
+
+    ImGui::GetIO().MouseClicked[0] = false;
+    ImGui::GetIO().MouseClicked[1] = false;
+
+    ImGui::GetIO().MouseDownDuration[0] = 1.;
+    ImGui::GetIO().MouseDownDuration[1] = 1.;
+
+
+}
