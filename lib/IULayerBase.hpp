@@ -24,6 +24,8 @@ class IUWindowController;
 // base class for layers etc
 class IULayerBase : public IUBaseT<IULayerBase> {
     friend class IULayer;
+    // todo?
+    friend class IUViewContainer;
 protected:
     IULayerBase* _parent = 0;
     
@@ -52,6 +54,8 @@ public:
     inline float scale() { return (zoomable) ? ImGui::GetCurrentWindow()->FontWindowScale : 1; }
 
     bool zoomable = true;
+    
+    IULayerBase* parent(){return _parent;}
 };
 
 #endif /* IUSubLayer_hpp */

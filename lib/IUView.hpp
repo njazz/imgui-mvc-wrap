@@ -28,12 +28,11 @@ class IUView : public IULayer {
 
     std::map<int, std::vector<IUAction*> > _actions;
 
-    
     bool _mouseDownFlag = false;
 
 protected:
     bool _hovered = false;
-    
+
     inline bool _isMouseDown()
     {
         bool ret = (ImGui::IsMouseClicked(0) && ImGui::IsMouseHoveringRect(ImVec2(x, y), ImVec2(x + width, y + height)));
@@ -74,10 +73,12 @@ public:
     bool mouseEnabled = true;
 
     virtual void onMouseDown(ImVec2 pos){};
-    virtual void onMouseHover(ImVec2 pos){
+    virtual void onMouseHover(ImVec2 pos)
+    {
         _hovered = true;
     };
-    virtual void onMouseExit(ImVec2 pos){
+    virtual void onMouseExit(ImVec2 pos)
+    {
         _hovered = false;
     };
     virtual void onMouseUp(ImVec2 pos){};
@@ -85,19 +86,11 @@ public:
 
     virtual void onMouseDoubleClick(ImVec2 pos){};
     virtual void onMouseRightClick(ImVec2 pos){};
-    
-    void addSubview(IUView* v)
-    {
-        addSublayer(v);
-    }
-    void removeSubview(IUView* v)
-    {
-        removeSublayer(v);
-    }
-    void removeAllSubviews()
-    {
-        removeAllSublayers();
-    }
+
+    //
+    void addSubview(IUView* v);
+    void removeSubview(IUView* v);
+    void removeAllSubviews();
 };
 
 #endif /* IUView_hpp */

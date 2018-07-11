@@ -11,6 +11,7 @@
 #include <stdio.h>
 
 #include "IUViewController.hpp"
+#include "IUDockController.hpp"
 
 #include "imguicodeeditor.h"
 

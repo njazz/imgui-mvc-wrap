@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../lib/IUViewController.hpp"
-            timestampString = "552986131.691453"
+            timestampString = "553004434.262971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "145"
+            endingLineNumber = "145">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../lib/IUViewController.hpp"
-            timestampString = "552986131.691571"
+            timestampString = "553004434.263108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "145"
+            endingLineNumber = "145">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -23,19 +23,17 @@ class IUMenuBase : public IUBaseT<IUMenuBase> {
     std::map<int, IUAction*> _actions;
     std::map<int, IUShortcut*> _shortcuts;
 
+    void _itemAction(int action);
+
 public:
     std::string name;
 
-//    IUWindowController* windowController = 0;
-
+    // imgui-like:
     void shortcut(int action = 0, IUShortcut shortcut = IUShortcut::None());
-
     bool item(std::string name, int action = 0, IUShortcut shortcut = IUShortcut::None(), bool checked = false, bool enabled = true);
 
-    void _itemAction(int action);
-
     virtual void draw() override;
-    virtual void _drawContents() override {};
+    virtual void _drawContents() override{};
 
     void setAction(int key, IUAction* a) { _actions[key] = a; };
 
@@ -45,32 +43,24 @@ public:
         _actions = src->_actions;
         _shortcuts = src->_shortcuts;
     }
-    
-//    virtual void shortcuts() override;
-    
 };
 
-class IUPopupMenu : public IUMenuBase
-{
-public:
+//class IUPopupMenu : public IUMenuBase {
+//public:
+//    virtual void draw() override
+//    {
+//        if (ImGui::BeginPopupContextItem(name.c_str())) {
 
-    virtual void draw() override
-    {
-        shortcuts();
+//            IUBaseT<IUMenuBase>::draw();
 
-        if (ImGui::BeginPopupContextItem(name.c_str())) {
-//            _drawComponents();
-//            _drawContents();
-            
-            IUBaseT<IUMenuBase>::draw();
-            
-            ImGui::EndPopup();
-        }
-    };
+//            ImGui::EndPopup();
+//        }
+//    };
 
-    void openPopup(){
-        ImGui::OpenPopup(name.c_str());
-    }
-};
+//    void openPopup()
+//    {
+//        ImGui::OpenPopup(name.c_str());
+//    }
+//};
 
 #endif

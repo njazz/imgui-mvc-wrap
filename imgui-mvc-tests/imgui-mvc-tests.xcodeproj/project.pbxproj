@@ -10,6 +10,8 @@
 		310CB54C20F4F41800E45125 /* imguidock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325DE20BC4C6900FE74EA /* imguidock.cpp */; };
 		313C085E20F5E6C600C44259 /* IUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C085C20F5E6C600C44259 /* IUBase.cpp */; };
 		313C085F20F5E6C600C44259 /* IUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C085C20F5E6C600C44259 /* IUBase.cpp */; };
+		313C087320F62B0400C44259 /* IUDockController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C087220F62B0400C44259 /* IUDockController.cpp */; };
+		313C087420F62B0400C44259 /* IUDockController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C087220F62B0400C44259 /* IUDockController.cpp */; };
 		316325A820BC446600FE74EA /* IULayerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325A720BC446600FE74EA /* IULayerBase.cpp */; };
 		316325B320BC48D400FE74EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316325B220BC48D400FE74EA /* Assets.xcassets */; };
 		316325C020BC490000FE74EA /* AppController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316325BE20BC490000FE74EA /* AppController.cpp */; };
@@ -64,6 +66,8 @@
 /* Begin PBXFileReference section */
 		313C085C20F5E6C600C44259 /* IUBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUBase.cpp; sourceTree = "<group>"; };
 		313C085D20F5E6C600C44259 /* IUBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUBase.hpp; sourceTree = "<group>"; };
+		313C087120F62B0300C44259 /* IUDockController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IUDockController.hpp; sourceTree = "<group>"; };
+		313C087220F62B0400C44259 /* IUDockController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IUDockController.cpp; sourceTree = "<group>"; };
 		316325A620BC446500FE74EA /* IULayerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IULayerBase.hpp; sourceTree = "<group>"; };
 		316325A720BC446600FE74EA /* IULayerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IULayerBase.cpp; sourceTree = "<group>"; };
 		316325AD20BC48D400FE74EA /* imgui-mvc-demo-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "imgui-mvc-demo-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,6 +431,8 @@
 				31C9C8362075057F00C68589 /* IUView.hpp */,
 				31C9C8372075057F00C68589 /* IUViewController.cpp */,
 				31C9C8382075057F00C68589 /* IUViewController.hpp */,
+				313C087220F62B0400C44259 /* IUDockController.cpp */,
+				313C087120F62B0300C44259 /* IUDockController.hpp */,
 				31C9C8392075057F00C68589 /* IUWindowController.cpp */,
 				31C9C83A2075057F00C68589 /* IUWindowController.hpp */,
 			);
@@ -591,6 +597,7 @@
 				316325CF20BC4AAA00FE74EA /* imgui.cpp in Sources */,
 				316325CB20BC4A9400FE74EA /* IUShortcut.cpp in Sources */,
 				3163262720BC54F700FE74EA /* TestObject.cpp in Sources */,
+				313C087420F62B0400C44259 /* IUDockController.cpp in Sources */,
 				3163261420BC4C6900FE74EA /* jo_gif.cpp in Sources */,
 				316325D120BC4AAA00FE74EA /* imgui_draw.cpp in Sources */,
 				316325CC20BC4A9400FE74EA /* IUView.cpp in Sources */,
@@ -627,6 +634,7 @@
 				31C9C8502075057F00C68589 /* IUMenuBase.cpp in Sources */,
 				31C9C8552075057F00C68589 /* IUWindowController.cpp in Sources */,
 				31C9C8532075057F00C68589 /* IUView.cpp in Sources */,
+				313C087320F62B0400C44259 /* IUDockController.cpp in Sources */,
 				31C9C8212075054800C68589 /* imgui_mvc_tests.mm in Sources */,
 				31C9C8582075057F00C68589 /* imgui_demo.cpp in Sources */,
 				31C9C84E2075057F00C68589 /* IULayer.cpp in Sources */,

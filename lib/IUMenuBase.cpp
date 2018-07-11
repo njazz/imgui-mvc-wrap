@@ -27,8 +27,7 @@ bool IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool ch
     if (ImGui::MenuItem(name.c_str(), shortcut.str().c_str(), checked, enabled)) {
 
         _itemAction(action);
-//        if (_windowController)
-//            _windowController->restoreContext();
+
         return true;
     }
     return false;
@@ -44,7 +43,7 @@ void IUMenuBase::draw()
 //    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
 //    ImGui::SetWindowFontScale(1);
 
-    shortcuts();
+    _shortcutContents();
 
     if (ImGui::BeginMenu(name.c_str())) {
         _drawComponents();

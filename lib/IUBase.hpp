@@ -20,10 +20,10 @@ protected:
     IUWindowController* _windowController = 0;
 
     virtual void _drawContents() = 0;
+    virtual void _shortcutContents() = 0;
 
 public:
     virtual void draw() = 0;
-    virtual void shortcuts() = 0;
 
     virtual void setWindowController(IUWindowController* w);
     IUWindowController* windowController();
@@ -46,6 +46,7 @@ protected:
     void _setWindowControllerComponents();
 
     virtual void _drawContents() override{};
+    virtual void _shortcutContents() override{};
 
 public:
     void addComponent(T* c);
@@ -55,7 +56,7 @@ public:
     virtual void setWindowController(IUWindowController* w) override;
 
     virtual void draw() override;
-    virtual void shortcuts() override;
+    //    virtual void shortcuts() override;
 };
 
 // ---------- template ----------
@@ -73,7 +74,7 @@ template <typename T>
 void IUBaseT<T>::_shortcutComponents()
 {
     for (auto c : _components)
-        c->shortcuts();
+        c->_shortcutContents();
 }
 
 template <typename T>
@@ -146,15 +147,14 @@ void IUBaseT<T>::draw()
 {
     _drawContents();
     _drawComponents();
+    _shortcutContents();
     _shortcutComponents();
 };
 
-template <typename T>
-void IUBaseT<T>::shortcuts()
-{
-    _shortcutComponents();
-}
-
-
+//template <typename T>
+//void IUBaseT<T>::shortcuts()
+//{
+//    _shortcutComponents();
+//}
 
 #endif /* IUBase_hpp */

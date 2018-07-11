@@ -37,6 +37,7 @@ void IULayer::_drawAllContents()
         return;
 
     IULayerBase::draw();
+
 }
 
 void IULayer::draw()

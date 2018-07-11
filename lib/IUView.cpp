@@ -1,3 +1,5 @@
+
+
 //
 //  IIUView.cpp
 //  imguiController
@@ -44,7 +46,7 @@ void IUView::updated(int key)
 //template<>
 //void IUView::_classSpecificMouseHandler<IUView>()
 //{
-//    
+//
 //}
 
 // ---
@@ -55,9 +57,8 @@ void IUView::_handleMouse()
     if (!mouseEnabled)
         return;
 
-
     ImVec2 pos;
-    
+
     if (_isMouseHover())
         onMouseHover(pos);
     else
@@ -72,7 +73,6 @@ void IUView::_handleMouse()
 
     if (_isMouseDragged())
         onMouseDrag(pos);
-    
 }
 
 // ---
@@ -105,12 +105,12 @@ void IUView::draw()
     ImGui::EndChildFrame();
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
-    
+
     //_hoveringView = ImGui::IsItemHovered();
     _handleMouse();
     _shortcutComponents();
-    
-//    _updateComponents();
+
+    //    _updateComponents();
 };
 
 // ---
@@ -119,4 +119,19 @@ void IUView::removeFromParentView()
     if (_parent) {
         _parent->removeComponent(this);
     }
+}
+
+// ---
+
+void IUView::addSubview(IUView* v)
+{
+    addSublayer(v);
+}
+void IUView::removeSubview(IUView* v)
+{
+    removeSublayer(v);
+}
+void IUView::removeAllSubviews()
+{
+    removeAllSublayers();
 }

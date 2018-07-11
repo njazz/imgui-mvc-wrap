@@ -9,22 +9,23 @@
 #include "IUMainMenuBase.hpp"
 #include "IUWindowController.hpp"
 
-void IUViewControllerBase::setWindowController(IUWindowController* w)
-{
-    IUView::setWindowController(w);
-}
+//void IUViewControllerBase::setWindowController(IUWindowController* w)
+//{
+//    IUView::setWindowController(w);
+//}
 
 void IUViewControllerBase::draw()
 {
+    if (hidden)
+        return;
     //    ImGui::SetWindowFontScale(scale());
 
-//    if (dockSpace)
-//        ImGui::BeginDockspace();
+    //    if (dockSpace)
+    //        ImGui::BeginDockspace();
 
     drawMenu();
 
-    _drawSubcontrollers();
-
+    //_drawSubcontrollers();
 
     // setup
     ImGui::SetNextWindowPos(pos());
@@ -38,31 +39,38 @@ void IUViewControllerBase::draw()
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(padding, padding));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(padding, padding));
 
-//    if (dockable)
-//        ImGui::BeginDock(title.c_str(), &display, flags);
-//    else
-        ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
+    //    if (dockable)
+    //        ImGui::BeginDock(title.c_str(), &display, flags);
+    //    else
+    bool display = !hidden;
+    ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
 
-    _drawAllContents();
-    _handleMouse();
+    //    _drawAllContents();
+
+    _drawContents();
+    _drawComponents();
+    _shortcutContents();
     _shortcutComponents();
+    _handleMouse();
+
+    //    _shortcutComponents();
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 
-//    if (dockable)
-//        ImGui::EndDock();
-//    else
-        ImGui::End();
+    //    if (dockable)
+    //        ImGui::EndDock();
+    //    else
+    ImGui::End();
 
     ImGui::PopStyleVar();
     ImGui::PopStyleVar();
 
-//    if (dockSpace)
-//        ImGui::EndDockspace();
+    //    if (dockSpace)
+    //        ImGui::EndDockspace();
 }
 
 void IUViewControllerBase::drawMenu()
@@ -70,3 +78,4 @@ void IUViewControllerBase::drawMenu()
     if (menu)
         menu->draw();
 }
+
