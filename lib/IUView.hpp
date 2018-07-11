@@ -74,6 +74,7 @@ public:
     void removeAction(int k, IUAction* o);
     void removeAllActions(int k);
     void updated(int key);
+    void setUserObjectForAction(int k, void* obj);
     //---
 
     void removeFromParentView();

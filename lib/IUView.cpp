@@ -42,7 +42,11 @@ void IUView::updated(int key)
         o->action();
     }
 }
-
+void IUView::setUserObjectForAction(int k, void* obj)
+{
+    for (auto a:_actions[k])
+        a->userObject = obj;
+}
 //template<>
 //void IUView::_classSpecificMouseHandler<IUView>()
 //{
