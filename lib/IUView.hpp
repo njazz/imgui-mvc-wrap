@@ -105,6 +105,14 @@ public:
 
     //
     ImGuiWindowFlags flags = 0;
+    
+    // zoom
+    void setScale(float v)
+    {
+        ImGui::GetCurrentWindow()->FontWindowScale = v;
+    }
+
+    float scale = 1;
 };
 
 #endif /* IUView_hpp */

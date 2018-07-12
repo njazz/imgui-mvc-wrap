@@ -38,8 +38,8 @@ bool IUMenuBase::item(std::string name, int action, IUShortcut shortcut, bool ch
 
 void IUMenuBase::draw()
 {
-    //    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
-    //    ImGui::SetWindowFontScale(1);
+        //float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
+        // ImGui::SetWindowFontScale(1);
 
     _shortcutContents();
 
@@ -49,7 +49,7 @@ void IUMenuBase::draw()
         ImGui::EndMenu();
     }
 
-    //    ImGui::SetWindowFontScale(fontScale);
+        //ImGui::SetWindowFontScale(fontScale);
 }
 
 //void IUMenuBase::shortcuts()

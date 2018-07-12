@@ -44,6 +44,12 @@ void IUViewControllerBase::draw()
     //    else
     bool display = !hidden;
     ImGui::Begin(title.c_str(), &display, ImVec2(0, 0), alpha, flags);
+    
+    float _s = ImGui::GetCurrentWindow()->FontWindowScale;
+    ImGui::GetCurrentWindow()->FontWindowScale = scale;
+    
+    ImGui::BeginChild(std::string(title+"F").c_str());
+    
 
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, wp);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, fp);
@@ -64,6 +70,11 @@ void IUViewControllerBase::draw()
     //    if (dockable)
     //        ImGui::EndDock();
     //    else
+    
+    ImGui::EndChild();
+    
+    ImGui::GetCurrentWindow()->FontWindowScale = _s;
+    
     ImGui::End();
 
     ImGui::PopStyleVar();

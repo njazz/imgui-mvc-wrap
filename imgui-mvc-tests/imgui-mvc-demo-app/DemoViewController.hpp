@@ -22,7 +22,7 @@
 class DemoViewController : public IUDockViewController {
     
     
-    //    ZoomableView v;
+        ZoomableView v;
     
     //IUDockViewController _dock;
     IUDockableViewController _vc1;
@@ -30,9 +30,9 @@ class DemoViewController : public IUDockViewController {
 public:
     DemoViewController()
     {
-        //        v.width = 640;
-        //        v.height = 480;
-        //        addSubview(&v);
+                v.width = 640;
+                v.height = 480;
+                addSubview(&v);
 
 //        auto d_c = ImGui::CreateDockContext();
 //        ImGui::SetCurrentDockContext(d_c);
