@@ -10,6 +10,8 @@
 
 #include "imgui.h"
 
+#include <algorithm>
+
 void IUBase::setWindowController(IUWindowController* w)
 {
     _windowController = w;

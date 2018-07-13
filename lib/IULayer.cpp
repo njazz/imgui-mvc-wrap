@@ -12,6 +12,8 @@
 
 #include "imgui_internal.h"
 
+#include <algorithm>
+
 IULayer::IULayer()
     : IULayerBase()
 {
