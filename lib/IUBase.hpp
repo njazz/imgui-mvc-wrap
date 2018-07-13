@@ -12,6 +12,8 @@
 #include <functional>
 #include <vector>
 
+#include <algorithm>
+
 class IUWindowController;
 
 // abstract base
