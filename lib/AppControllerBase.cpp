@@ -12,6 +12,8 @@
 #include "IUWindowController.hpp"
 #include "IUViewController.hpp"
 
+#include <algorithm>
+
 void AppControllerBase::_windowDrawLoop()
 {
     while (_windowControllers.size()) {
