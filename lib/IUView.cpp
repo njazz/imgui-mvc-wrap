@@ -63,7 +63,7 @@ void IUView::_handleMouse()
         return;
 //    printf("passed \n");
 
-    ImVec2 pos;
+    ImVec2 pos = ImGui::GetIO().MousePos;
 
     if (_isMouseHover())
         onMouseHover(pos);
