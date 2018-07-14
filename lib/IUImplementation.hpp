@@ -38,7 +38,7 @@ class IUImplementation {
     GLFWcursor* g_MouseCursors[ImGuiMouseCursor_COUNT] = { 0 };
 
     // OpenGL3 data
-    char g_GlslVersion[32] = "#version 150";
+    char g_GlslVersion[32] = {'#','v','e','r','s','i','o','n',' ','1','5','0','\0'};
     GLuint g_FontTexture = 0;
     int g_ShaderHandle = 0, g_VertHandle = 0, g_FragHandle = 0;
     int g_AttribLocationTex = 0, g_AttribLocationProjMtx = 0;
