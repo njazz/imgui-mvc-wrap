@@ -7,3 +7,5 @@ ImGuiIO& GetIO() { return _io; }
 }
 
 ImGuiIO::ImGuiIO() {}
+
+ImGuiContext*   GImGui = NULL;

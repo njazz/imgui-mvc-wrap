@@ -53,6 +53,7 @@ imgui_add_test(imgui imgui)
 target_sources(test_imgui PUBLIC "${PROJECT_SOURCE_DIR}/../imgui/tests/imgui_mock.cpp")
 target_sources(test_imgui PUBLIC "${PROJECT_SOURCE_DIR}/../imgui/lib/IUAction.cpp")
 target_sources(test_imgui PUBLIC "${PROJECT_SOURCE_DIR}/../imgui/lib/IUBase.cpp")
+target_sources(test_imgui PUBLIC "${PROJECT_SOURCE_DIR}/../imgui/lib/IULayerBase.cpp")
 
 
 

@@ -3,6 +3,7 @@
 
 #include "IUAction.hpp"
 #include "IUBase.hpp"
+#include "IULayerBase.hpp"
 
 TEST_CASE("IUAction")
 {
@@ -38,20 +39,41 @@ TEST_CASE("IUAction")
 }
 
 class TestBase:public IUBaseT<TestBase>
-{};
+{
+public:
+    std::vector<TestBase*>& components(){return _components;}
+};
 
 TEST_CASE("IUBase")
 {
     SECTION("1")
     {
         TestBase tb;
+
+        REQUIRE(tb.components().size() == 0);
+
+        TestBase nc;
+
+        tb.addComponent(&nc);
+        tb.draw();
+
+        REQUIRE(tb.components().size() == 1);
+
+        tb.removeComponent(&nc);
+        tb.draw();
+
+        REQUIRE(tb.components().size() == 0);
+
     }
 }
 
 TEST_CASE("IULayerBase")
 {
     SECTION("1")
-    {}
+    {
+        IULayerBase lb;
+
+    }
 }
 
 TEST_CASE("IUView")
