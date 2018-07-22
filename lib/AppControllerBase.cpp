@@ -9,10 +9,12 @@
 #include "AppControllerBase.hpp"
 
 //#include "glfw3.h"
-#include "IUWindowController.hpp"
 #include "IUViewController.hpp"
+#include "IUWindowController.hpp"
 
 #include <algorithm>
+#include <fstream>
+#include <string>
 
 void AppControllerBase::_windowDrawLoop()
 {
@@ -82,4 +84,23 @@ IUWindowController* AppControllerBase::windowAt(int i)
 AppControllerBase::~AppControllerBase()
 {
     glfwTerminate();
+}
+
+//
+
+ImFont *AppControllerBase::addFont(std::string font)
+{
+    ImFont* ret = 0;
+
+    ImGuiIO& io = ImGui::GetIO();
+
+    std::ifstream fontfile(font);
+
+    if (fontfile.good()) {
+        ret = io.Fonts->AddFontFromFileTTF(font.c_str(), 32.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
+        return ret;
+    } else {
+        printf("font file not found!\n");
+        return ret;
+    }
 }

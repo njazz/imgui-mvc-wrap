@@ -18,6 +18,9 @@
 //{
 //    _initWindow();
 //}
+
+#include "AppControllerBase.hpp"
+
 IUWindowController::IUWindowController(IUViewControllerBase* vc, std::string title, int x, int y, int w, int h)
 {
     setViewController(vc);
@@ -103,13 +106,8 @@ int IUWindowController::_initWindow()
 
     // Load Fonts
 
-    std::ifstream fontfile("../Resources/fonts/Arial-Unicode-Regular.ttf");
+    AppControllerBase::addFont("../Resources/fonts/Arial-Unicode-Regular.ttf");
 
-    if (fontfile.good()) {
-        io.Fonts->AddFontFromFileTTF("../Resources/fonts/Arial-Unicode-Regular.ttf", 32.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
-    } else {
-        printf("font file not found!\n");
-    }
     io.DisplayFramebufferScale = ImVec2(2, 2);
     io.FontGlobalScale = 0.5;
 

@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 #include <vector>
+#include <string>
+
+struct ImFont;
 
 class IUWindowController;
 
@@ -29,6 +32,9 @@ public:
     void removeWindow(IUWindowController* w);
 
     IUWindowController* windowAt(int i);
+
+    //
+    static ImFont* addFont(std::string font);
 };
 
 #endif /* AppController_hpp */
