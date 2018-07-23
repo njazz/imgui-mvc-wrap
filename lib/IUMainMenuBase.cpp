@@ -3,7 +3,7 @@
 
 void IUMainMenuBase::draw()
 {
-    // todo: font scale
+    /// \todo font scale
     //    float fontScale = ImGui::GetCurrentWindow()->FontWindowScale;
     //    ImGui::SetWindowFontScale(1);
 
